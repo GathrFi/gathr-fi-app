@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Nautory Colors Token  -->
+    <color name="primary">#7A5BFF</color>
+    <color name="secondary">#D808FF</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surfaceDark">#000000</color>
+    <color name="border">#E0E3E6</color>
+    <color name="borderDark">#262A30</color>
+    <color name="textPrimary">#011010</color>
+    <color name="textPrimaryDark">#FFFFFF</color>
+    <color name="textSecondary">#717581</color>
+    <color name="orange">#FF7E68</color>
+    <color name="blue">#4D9CFF</color>
+    <color name="yellow">#FFB453</color>
+</resources>

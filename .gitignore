@@ -33,6 +33,12 @@ migrate_working_dir/
 .pub/
 /build/
 
+# Generated codes
+*.config.dart
+*.freezed.dart
+*.g.dart
+*.gr.dart
+
 # Symbolication related
 app.*.symbols
 

@@ -1,0 +1,11 @@
+{
+  "@@locale": "en",
+  "appName": "GathrFi",
+  "@_ONBOARDING": {},
+  "onboardingTitle": "Meet GathrFi",
+  "onboardingDesc": "Transform bill splitting from awkward IOU tracking to automated, yield-earning DeFi experience",
+  "iEmailAddressLabel": "Email Address",
+  "iEmailAddressHint": "username@email.com",
+  "btnLogin": "Continue with Email",
+  "otherLoginMethod": "or continue with"
+}
