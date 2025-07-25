@@ -6,8 +6,8 @@ plugins {
 }
 
 android {
-    namespace = "com.example.gathr_fi_app"
-    compileSdk = flutter.compileSdkVersion
+    namespace = "com.rainfore.gathrfi"
+    compileSdk = 34 // flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -24,8 +24,8 @@ android {
         applicationId = "com.rainfore.gathrfi"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
+        minSdk = 33 // flutter.minSdkVersion
+        targetSdk = 33 // flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }

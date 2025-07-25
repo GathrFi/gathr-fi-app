@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run App",
+      "type": "dart",
+      "request": "launch",
+      "flutterMode": "debug",
+      "program": "${workspaceFolder}/lib/main.dart",
+      "args": [
+        "--dart-define=WEB3_AUTH_CLIENT_ID=BPMyOnqUfKPryiZlP2WBR8MFFRcK-m6BRXOsLCP7RAwF4IcoGkEUPv6bzBGnL9eGhBzBXNzDwQag9roAe3HTSbk"
+      ]
+    }
+  ]
+}

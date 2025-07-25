@@ -14,7 +14,7 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   ThemeBloc(this.sharedPreferences) : super(const _ThemeState()) {
     const modePrefsKey = 'gathrfi-theme-mode';
 
-    on<_Init>((event, emit) {
+    on<_Initialize>((event, emit) {
       final currModeName = sharedPreferences.getString(modePrefsKey);
       final currMode = currModeName != null
           ? ThemeMode.values.byName(currModeName)

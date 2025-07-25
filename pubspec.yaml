@@ -49,6 +49,12 @@ dependencies:
   bloc: ^9.0.0
   freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
+  web3auth_flutter: ^6.2.0
+  web3dart: ^3.0.1  
+  wallet: ^0.0.18
+  http: ^1.4.0
+  video_player: ^2.10.0
+  flutter_animate: ^4.5.2
 
 dev_dependencies:
   flutter_test:

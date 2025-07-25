@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../shared/assets/assets.gen.dart';
 import '../../../shared/assets/colors.gen.dart';
@@ -7,6 +8,7 @@ import '../../../shared/extensions/ext_misc.dart';
 import '../../../shared/extensions/ext_theme.dart';
 import '../../../shared/widgets/global_button.dart';
 import '../../../shared/widgets/global_label_wrapper.dart';
+import '../managers/auth_bloc.dart';
 import 'social_login_button.dart';
 
 class LoginFormView extends StatefulWidget {
@@ -58,7 +60,9 @@ class _LoginFormViewState extends State<LoginFormView> {
         SizedBox(
           width: context.deviceWidth,
           child: GlobalButton.filled(
-            onTap: () {},
+            onTap: () => context.read<AuthBloc>().add(
+              AuthEvent.loginWithEmail(_emailController.text),
+            ),
             size: GlobalButtonSize.large,
             child: Text(context.l10n.btnLogin),
           ),
@@ -100,17 +104,23 @@ class _LoginFormViewState extends State<LoginFormView> {
           mainAxisSize: MainAxisSize.min,
           children: [
             SocialLoginButton(
-              onTap: () {},
+              onTap: () => context.read<AuthBloc>().add(
+                const AuthEvent.loginWithGoogle(),
+              ),
               icon: Assets.images.imgSocialGoogle.svg(),
               darkIcon: Assets.images.imgSocialGoogleNegative.svg(),
             ),
             SocialLoginButton(
-              onTap: () {},
+              onTap: () => context.read<AuthBloc>().add(
+                const AuthEvent.loginWithApple(),
+              ),
               icon: Assets.images.imgSocialApple.svg(),
               darkIcon: Assets.images.imgSocialAppleNegative.svg(),
             ),
             SocialLoginButton(
-              onTap: () {},
+              onTap: () => context.read<AuthBloc>().add(
+                const AuthEvent.loginWithDiscord(),
+              ),
               icon: Assets.images.imgSocialDiscord.svg(),
               darkIcon: Assets.images.imgSocialDiscordNegative.svg(),
             ),

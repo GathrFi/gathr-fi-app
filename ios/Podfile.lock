@@ -1,15 +1,42 @@
 PODS:
+  - BigInt (5.2.0)
+  - curvelib.swift (2.0.0)
   - Flutter (1.0.0)
   - flutter_secure_storage (3.3.1):
     - Flutter
+  - KeychainSwift (20.0.0)
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
+  - TorusSessionManager (6.0.2):
+    - curvelib.swift (~> 2.0.0)
+    - KeychainSwift (~> 20.0.0)
+  - video_player_avfoundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - Web3Auth (11.1.0):
+    - BigInt (~> 5.2.0)
+    - curvelib.swift (~> 2.0.0)
+    - KeychainSwift (~> 20.0.0)
+    - TorusSessionManager (~> 6.0.2)
+  - web3auth_flutter (2.0.1):
+    - Flutter
+    - Web3Auth (~> 11.1.0)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
+  - video_player_avfoundation (from `.symlinks/plugins/video_player_avfoundation/darwin`)
+  - web3auth_flutter (from `.symlinks/plugins/web3auth_flutter/ios`)
+
+SPEC REPOS:
+  trunk:
+    - BigInt
+    - curvelib.swift
+    - KeychainSwift
+    - TorusSessionManager
+    - Web3Auth
 
 EXTERNAL SOURCES:
   Flutter:
@@ -18,12 +45,23 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_secure_storage/ios"
   shared_preferences_foundation:
     :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
+  video_player_avfoundation:
+    :path: ".symlinks/plugins/video_player_avfoundation/darwin"
+  web3auth_flutter:
+    :path: ".symlinks/plugins/web3auth_flutter/ios"
 
 SPEC CHECKSUMS:
+  BigInt: f668a80089607f521586bbe29513d708491ef2f7
+  curvelib.swift: b9223e5cac801effed8a5fe8968e952b3fe427a5
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_secure_storage: 50035aef357c5a8bdd67fd6bc81370d46efc4d16
+  KeychainSwift: 0ce6a4d13f7228054d1a71bb1b500448fb2ab837
   shared_preferences_foundation: 9e1978ff2562383bd5676f64ec4e9aa8fa06a6f7
+  TorusSessionManager: 3c47c2a4c4d6173a10006eb0af4b86317ee45ff8
+  video_player_avfoundation: 2cef49524dd1f16c5300b9cd6efd9611ce03639b
+  Web3Auth: fa82260fa6dacdcf647b333d85a923530d045051
+  web3auth_flutter: ecf03bfbcb9ebf1ed8edb24642b5dac6d6b6a980
 
-PODFILE CHECKSUM: 4305caec6b40dde0ae97be1573c53de1882a07e5
+PODFILE CHECKSUM: e30f02f9d1c72c47bb6344a0a748c9d268180865
 
 COCOAPODS: 1.16.2

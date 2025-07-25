@@ -30,6 +30,15 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+
+            <data android:scheme="w3a" android:host="com.rainfore.gathrfi"/>
+        </intent-filter>
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and
@@ -42,4 +51,6 @@
             <data android:mimeType="text/plain"/>
         </intent>
     </queries>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
