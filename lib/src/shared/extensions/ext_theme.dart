@@ -6,6 +6,8 @@ import 'ext_dimens.dart';
 extension ThemeX on BuildContext {
   TextTheme get textTheme => Theme.of(this).textTheme;
 
+  Brightness get brightness => Theme.brightnessOf(this);
+
   ThemeData get themeData {
     return ThemeData(
       useMaterial3: true,

@@ -45,7 +45,7 @@ class GlobalSheetWrapper extends StatelessWidget {
                       maxLines: 1,
                     ),
                   ),
-                  GlobalCircleButton(
+                  GlobalCircleButton.filled(
                     onTap: () => context.maybePop(),
                     child: const Icon(Icons.close),
                   ),

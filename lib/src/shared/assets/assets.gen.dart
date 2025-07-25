@@ -21,6 +21,9 @@ class $AssetsIconsGen {
   SvgGenImage get icAutoMode =>
       const SvgGenImage('assets/icons/ic-auto-mode.svg');
 
+  /// File path: assets/icons/ic-copy.svg
+  SvgGenImage get icCopy => const SvgGenImage('assets/icons/ic-copy.svg');
+
   /// File path: assets/icons/ic-dark-mode.svg
   SvgGenImage get icDarkMode =>
       const SvgGenImage('assets/icons/ic-dark-mode.svg');
@@ -28,12 +31,22 @@ class $AssetsIconsGen {
   /// File path: assets/icons/ic-home.svg
   SvgGenImage get icHome => const SvgGenImage('assets/icons/ic-home.svg');
 
+  /// File path: assets/icons/ic-info.svg
+  SvgGenImage get icInfo => const SvgGenImage('assets/icons/ic-info.svg');
+
   /// File path: assets/icons/ic-light-mode.svg
   SvgGenImage get icLightMode =>
       const SvgGenImage('assets/icons/ic-light-mode.svg');
 
+  /// File path: assets/icons/ic-notification.svg
+  SvgGenImage get icNotification =>
+      const SvgGenImage('assets/icons/ic-notification.svg');
+
   /// File path: assets/icons/ic-setting.svg
   SvgGenImage get icSetting => const SvgGenImage('assets/icons/ic-setting.svg');
+
+  /// File path: assets/icons/ic-user.svg
+  SvgGenImage get icUser => const SvgGenImage('assets/icons/ic-user.svg');
 
   /// File path: assets/icons/ic-wallet.svg
   SvgGenImage get icWallet => const SvgGenImage('assets/icons/ic-wallet.svg');
@@ -41,10 +54,14 @@ class $AssetsIconsGen {
   /// List of all assets
   List<SvgGenImage> get values => [
     icAutoMode,
+    icCopy,
     icDarkMode,
     icHome,
+    icInfo,
     icLightMode,
+    icNotification,
     icSetting,
+    icUser,
     icWallet,
   ];
 }

@@ -10,7 +10,7 @@ class GlobalBlurBackdrop extends StatelessWidget {
     required this.child,
     super.key,
     this.color = ColorName.surface,
-    this.opacity = 0.7,
+    this.opacity = 0.5,
     this.borderRadius,
   });
 

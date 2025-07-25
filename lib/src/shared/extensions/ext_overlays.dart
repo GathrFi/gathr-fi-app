@@ -5,8 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:toastification/toastification.dart';
 
+import '../assets/assets.gen.dart';
 import '../assets/colors.gen.dart';
 import 'ext_dimens.dart';
+import 'ext_misc.dart';
+import 'ext_theme.dart';
 
 extension OverlaysX on BuildContext {
   Future<T?> showSheet<T>({
@@ -58,30 +61,55 @@ extension OverlaysX on BuildContext {
     Duration duration = const Duration(seconds: 5),
     bool alwaysShow = false,
   }) {
+    final backgroundColor = switch (brightness) {
+      Brightness.dark => ColorName.surface,
+      Brightness.light => ColorName.surfaceDark,
+    };
+
+    final foregroundColor = switch (brightness) {
+      Brightness.dark => ColorName.surfaceDark,
+      Brightness.light => ColorName.surface,
+    };
+
     toastification.showCustom(
       alignment: Alignment.bottomCenter,
       autoCloseDuration: alwaysShow ? null : duration,
+      animationDuration: const Duration(milliseconds: 300),
       builder: (context, holder) => Center(
         child: Container(
           margin: EdgeInsets.only(bottom: context.spacingMd),
           padding: EdgeInsets.symmetric(
             horizontal: context.spacingLg,
-            vertical: context.spacingMd,
+            vertical: context.spacingSm,
           ),
           decoration: BoxDecoration(
-            color: ColorName.surface,
-            borderRadius: context.spacingMd.borderRadius,
+            color: backgroundColor,
+            borderRadius: context.spacingSm.borderRadius,
             border: Border.all(color: Colors.grey.shade300),
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withValues(alpha: 0.1),
+                color: backgroundColor.withValues(alpha: 0.07),
                 offset: Offset(0, spacingXxs),
                 spreadRadius: 5,
                 blurRadius: 10,
               ),
             ],
           ),
-          child: Center(child: Text(message, style: textStyle)),
+          child: Row(
+            spacing: context.spacingXs,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Assets.icons.icInfo.icon(context, color: foregroundColor),
+              Text(
+                message,
+                style:
+                    textStyle ??
+                    context.textTheme.bodyLarge?.copyWith(
+                      color: foregroundColor,
+                    ),
+              ),
+            ],
+          ),
         ),
       ),
     );

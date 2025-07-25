@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:toastification/toastification.dart';
 import 'features/onboarding/managers/auth_bloc.dart';
+import 'features/settings/managers/profile_bloc.dart';
 import 'features/settings/managers/theme_bloc.dart';
 import 'gathrfi_app_di.dart';
 import 'gathrfi_app_router.dart';
@@ -18,6 +20,7 @@ class _GathrfiAppState extends State<GathrfiApp> {
   late final GathrfiAppRouter _appRouter;
   late final ThemeBloc _themeBloc;
   late final AuthBloc _authBloc;
+  late final ProfileBloc _profileBloc;
 
   @override
   void initState() {
@@ -25,6 +28,7 @@ class _GathrfiAppState extends State<GathrfiApp> {
     _themeBloc = locator<ThemeBloc>();
     _themeBloc.add(const ThemeEvent.initialize());
     _authBloc = locator<AuthBloc>();
+    _profileBloc = locator<ProfileBloc>();
     super.initState();
   }
 
@@ -34,6 +38,7 @@ class _GathrfiAppState extends State<GathrfiApp> {
       providers: [
         BlocProvider(create: (context) => _themeBloc),
         BlocProvider(create: (context) => _authBloc),
+        BlocProvider(create: (context) => _profileBloc),
       ],
       child: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
@@ -42,24 +47,27 @@ class _GathrfiAppState extends State<GathrfiApp> {
               _appRouter.replaceAll([const OnboardingRoute()]);
             },
             authenticated: () {
+              context.read<ProfileBloc>().add(const ProfileEvent.load());
               _appRouter.replaceAll([const HomeRoute()]);
             },
           );
         },
         child: BlocBuilder<ThemeBloc, ThemeState>(
           builder: (context, state) {
-            return MaterialApp.router(
-              debugShowCheckedModeBanner: false,
-              localizationsDelegates: AppLocalizations.localizationsDelegates,
-              supportedLocales: AppLocalizations.supportedLocales,
-              themeMode: state.mode,
-              theme: context.themeData,
-              darkTheme: context.darkThemeData,
-              routerConfig: _appRouter.config(),
-              builder: (context, child) => GestureDetector(
-                onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-                behavior: HitTestBehavior.opaque,
-                child: child,
+            return ToastificationWrapper(
+              child: MaterialApp.router(
+                debugShowCheckedModeBanner: false,
+                localizationsDelegates: AppLocalizations.localizationsDelegates,
+                supportedLocales: AppLocalizations.supportedLocales,
+                themeMode: state.mode,
+                theme: context.themeData,
+                darkTheme: context.darkThemeData,
+                routerConfig: _appRouter.config(),
+                builder: (context, child) => GestureDetector(
+                  onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+                  behavior: HitTestBehavior.opaque,
+                  child: child,
+                ),
               ),
             );
           },

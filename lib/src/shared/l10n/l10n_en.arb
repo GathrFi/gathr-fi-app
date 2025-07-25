@@ -7,5 +7,14 @@
   "iEmailAddressLabel": "Email Address",
   "iEmailAddressHint": "username@email.com",
   "btnLogin": "Continue with Email",
-  "otherLoginMethod": "or continue with"
+  "otherLoginMethod": "or continue with",
+  "greeting": "Hello, {name}",
+  "@greeting": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "addressCopied": "Address copied to clipboard!"
 }

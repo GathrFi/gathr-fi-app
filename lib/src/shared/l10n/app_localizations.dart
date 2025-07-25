@@ -135,6 +135,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'or continue with'**
   String get otherLoginMethod;
+
+  /// No description provided for @greeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello, {name}'**
+  String greeting(String name);
+
+  /// No description provided for @addressCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Address copied to clipboard!'**
+  String get addressCopied;
 }
 
 class _AppLocalizationsDelegate

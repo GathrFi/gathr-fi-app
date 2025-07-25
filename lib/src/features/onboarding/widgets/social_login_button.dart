@@ -16,7 +16,7 @@ class SocialLoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GlobalCircleButton(
+    return GlobalCircleButton.filled(
       onTap: onTap,
       child: switch (Theme.brightnessOf(context)) {
         Brightness.light => icon,

@@ -29,4 +29,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get otherLoginMethod => 'or continue with';
+
+  @override
+  String greeting(String name) {
+    return 'Hello, $name';
+  }
+
+  @override
+  String get addressCopied => 'Address copied to clipboard!';
 }

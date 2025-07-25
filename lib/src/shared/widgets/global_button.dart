@@ -133,19 +133,28 @@ class GlobalButton extends StatelessWidget {
   }
 }
 
+enum GlobalCircleButtonStyle { filled, outlined }
+
 class GlobalCircleButton extends StatelessWidget {
-  const GlobalCircleButton({
+  const GlobalCircleButton.filled({
     super.key,
     required this.onTap,
     required this.child,
-  });
+  }) : style = GlobalCircleButtonStyle.filled;
 
+  const GlobalCircleButton.outlined({
+    super.key,
+    required this.onTap,
+    required this.child,
+  }) : style = GlobalCircleButtonStyle.outlined;
+
+  final GlobalCircleButtonStyle style;
   final VoidCallback onTap;
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    final adaptiveColor = switch (Theme.brightnessOf(context)) {
+    final adaptiveColor = switch (context.brightness) {
       Brightness.dark => ColorName.textPrimaryDark,
       Brightness.light => ColorName.textPrimary,
     };
@@ -154,7 +163,17 @@ class GlobalCircleButton extends StatelessWidget {
       onPressed: onTap,
       style: FilledButton.styleFrom(
         foregroundColor: adaptiveColor,
-        backgroundColor: adaptiveColor.withValues(alpha: 0.1),
+        backgroundColor: style == GlobalCircleButtonStyle.filled
+            ? adaptiveColor.withValues(alpha: 0.1)
+            : Colors.transparent,
+        side: style == GlobalCircleButtonStyle.outlined
+            ? BorderSide(
+                color: switch (context.brightness) {
+                  Brightness.dark => ColorName.borderDark,
+                  Brightness.light => ColorName.border,
+                },
+              )
+            : null,
         minimumSize: Size(context.spacingLg * 2.5, context.spacingLg * 2.5),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         padding: EdgeInsets.all(context.spacingXxs),

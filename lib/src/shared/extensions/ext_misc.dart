@@ -31,4 +31,12 @@ extension SvgX on SvgGenImage {
 extension NullableStringX on String? {
   String get orEmpty => this ?? '';
   String get orDefault => this ?? '-';
+  String toShortAddress({int prefixLength = 7, int suffixLength = 5}) {
+    if (this == null) return '0x0';
+    if (this!.length <= prefixLength + suffixLength) return this!;
+
+    final prefix = this!.substring(0, prefixLength);
+    final suffix = this!.substring(this!.length - suffixLength);
+    return '$prefix...$suffix';
+  }
 }
