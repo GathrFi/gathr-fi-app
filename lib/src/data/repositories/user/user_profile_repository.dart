@@ -8,6 +8,7 @@ import '../../models/user/user_profile.dart';
 part 'user_profile_repository_impl.dart';
 
 abstract class UserProfileRepository {
+  Future<Result<bool>> checkUsername(String username);
   Future<Result<bool>> update(UserProfile userProfile);
   Future<Result<UserProfile>> get(String address);
   Future<Result<List<UserProfile>>> search(String username);

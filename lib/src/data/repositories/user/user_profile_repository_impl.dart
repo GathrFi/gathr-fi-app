@@ -6,6 +6,24 @@ class UserProfileRepositoryImpl implements UserProfileRepository {
   final SupabaseClient supabaseClient;
 
   @override
+  Future<Result<bool>> checkUsername(String username) {
+    return Callbacks.executeWithTryCatch<bool>(
+      operation: () async {
+        final response = await supabaseClient.functions.invoke(
+          'check-username',
+          body: {'username': username},
+        );
+
+        if (response.data == null) {
+          throw const AppException('Username already taken');
+        }
+
+        return response.data['available'] as bool;
+      },
+    );
+  }
+
+  @override
   Future<Result<bool>> update(UserProfile userProfile) {
     return Callbacks.executeWithTryCatch<bool>(
       operation: () async {

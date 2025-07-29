@@ -59,7 +59,7 @@ class _GathrfiAppState extends State<GathrfiApp> {
               state.mapOrNull(
                 loaded: (value) {
                   final userProfile = value.userProfile;
-                  if (userProfile == null) {
+                  if (userProfile == null || userProfile.username == null) {
                     _appRouter.replaceAll([const OnboardingProfileRoute()]);
                   } else {
                     _appRouter.replaceAll([const HomeRoute()]);
@@ -76,8 +76,7 @@ class _GathrfiAppState extends State<GathrfiApp> {
                 debugShowCheckedModeBanner: false,
                 localizationsDelegates: AppLocalizations.localizationsDelegates,
                 supportedLocales: AppLocalizations.supportedLocales,
-                // themeMode: state.mode,
-                themeMode: ThemeMode.light,
+                themeMode: state.mode,
                 theme: context.themeData,
                 darkTheme: context.darkThemeData,
                 routerConfig: _appRouter.config(),

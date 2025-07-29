@@ -11,6 +11,7 @@
   "createProfile": "Create Profile",
   "iUsernameLabel": "Username",
   "iUsernameHint": "Pick a cool username",
+  "iUsernameError": "Taken! Try being even cooler.",
   "btnContinue": "Continue",
   "greeting": "Hello, {name}",
   "@greeting": {

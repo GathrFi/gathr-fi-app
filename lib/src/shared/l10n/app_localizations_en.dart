@@ -40,6 +40,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get iUsernameHint => 'Pick a cool username';
 
   @override
+  String get iUsernameError => 'Taken! Try being even cooler.';
+
+  @override
   String get btnContinue => 'Continue';
 
   @override

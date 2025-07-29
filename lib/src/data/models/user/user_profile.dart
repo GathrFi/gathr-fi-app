@@ -6,7 +6,7 @@ part 'user_profile.g.dart';
 @freezed
 abstract class UserProfile with _$UserProfile {
   const UserProfile._();
-  factory UserProfile({
+  const factory UserProfile({
     String? email,
     String? username,
     String? address,
@@ -15,4 +15,12 @@ abstract class UserProfile with _$UserProfile {
 
   factory UserProfile.fromJson(Map<String, dynamic> json) =>
       _$UserProfileFromJson(json);
+
+  bool get isComplete =>
+      email != null &&
+      email!.isNotEmpty &&
+      username != null &&
+      username!.isNotEmpty &&
+      address != null &&
+      address!.isNotEmpty;
 }

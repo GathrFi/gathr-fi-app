@@ -154,6 +154,12 @@ abstract class AppLocalizations {
   /// **'Pick a cool username'**
   String get iUsernameHint;
 
+  /// No description provided for @iUsernameError.
+  ///
+  /// In en, this message translates to:
+  /// **'Taken! Try being even cooler.'**
+  String get iUsernameError;
+
   /// No description provided for @btnContinue.
   ///
   /// In en, this message translates to:

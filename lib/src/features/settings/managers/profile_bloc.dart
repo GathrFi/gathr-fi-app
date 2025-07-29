@@ -51,11 +51,18 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
           emit(_Error(e: userBalanceResult.error));
       }
 
-      UserProfile? userProfile;
+      UserProfile userProfile = UserProfile(
+        email: userInfo?.email,
+        address: userAddress,
+      );
+
       if (userAddress != null) {
         final userProfileResult = await profileRepository.get(userAddress);
         if (userProfileResult is Ok<UserProfile>) {
-          userProfile = userProfileResult.value;
+          userProfile = userProfile.copyWith(
+            username: userProfileResult.value.username,
+            image: userProfileResult.value.image,
+          );
         }
       }
 

@@ -41,7 +41,7 @@ extension ThemeX on BuildContext {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: spacingSm.borderRadius,
-          borderSide: const BorderSide(color: ColorName.primary),
+          borderSide: const BorderSide(color: ColorName.textPrimary),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: spacingSm.borderRadius,
