@@ -8,6 +8,10 @@
   "iEmailAddressHint": "username@email.com",
   "btnLogin": "Continue with Email",
   "otherLoginMethod": "or continue with",
+  "createProfile": "Create Profile",
+  "iUsernameLabel": "Username",
+  "iUsernameHint": "Pick a cool username",
+  "btnContinue": "Continue",
   "greeting": "Hello, {name}",
   "@greeting": {
     "placeholders": {

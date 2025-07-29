@@ -31,6 +31,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get otherLoginMethod => 'or continue with';
 
   @override
+  String get createProfile => 'Create Profile';
+
+  @override
+  String get iUsernameLabel => 'Username';
+
+  @override
+  String get iUsernameHint => 'Pick a cool username';
+
+  @override
+  String get btnContinue => 'Continue';
+
+  @override
   String greeting(String name) {
     return 'Hello, $name';
   }

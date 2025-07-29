@@ -25,11 +25,13 @@ class GlobalBlurBackdrop extends StatelessWidget {
       borderRadius: borderRadius ?? BorderRadius.zero,
       child: BackdropFilter(
         filter: ImageFilter.blur(
-          sigmaX: context.spacingXlg,
-          sigmaY: context.spacingXlg,
+          sigmaX: context.spacingLg * 3,
+          sigmaY: context.spacingLg * 3,
         ),
         child: DecoratedBox(
-          decoration: BoxDecoration(color: (color).withValues(alpha: opacity)),
+          decoration: BoxDecoration(
+            color: color.withAlpha((opacity * 255).round()),
+          ),
           child: child,
         ),
       ),

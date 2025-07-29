@@ -136,6 +136,30 @@ abstract class AppLocalizations {
   /// **'or continue with'**
   String get otherLoginMethod;
 
+  /// No description provided for @createProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Profile'**
+  String get createProfile;
+
+  /// No description provided for @iUsernameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Username'**
+  String get iUsernameLabel;
+
+  /// No description provided for @iUsernameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a cool username'**
+  String get iUsernameHint;
+
+  /// No description provided for @btnContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get btnContinue;
+
   /// No description provided for @greeting.
   ///
   /// In en, this message translates to:
