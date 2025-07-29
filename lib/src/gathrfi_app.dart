@@ -40,18 +40,35 @@ class _GathrfiAppState extends State<GathrfiApp> {
         BlocProvider(create: (context) => _authBloc),
         BlocProvider(create: (context) => _profileBloc),
       ],
-      child: BlocListener<AuthBloc, AuthState>(
-        listener: (context, state) {
-          state.whenOrNull(
-            unauthenticated: () {
-              _appRouter.replaceAll([const OnboardingRoute()]);
+      child: MultiBlocListener(
+        listeners: [
+          BlocListener<AuthBloc, AuthState>(
+            listener: (context, state) {
+              state.whenOrNull(
+                unauthenticated: () {
+                  _appRouter.replaceAll([const OnboardingRoute()]);
+                },
+                authenticated: () {
+                  context.read<ProfileBloc>().add(const ProfileEvent.load());
+                },
+              );
             },
-            authenticated: () {
-              context.read<ProfileBloc>().add(const ProfileEvent.load());
-              _appRouter.replaceAll([const HomeRoute()]);
+          ),
+          BlocListener<ProfileBloc, ProfileState>(
+            listener: (context, state) {
+              state.mapOrNull(
+                loaded: (value) {
+                  final userProfile = value.userProfile;
+                  if (userProfile == null) {
+                    _appRouter.replaceAll([const OnboardingProfileRoute()]);
+                  } else {
+                    _appRouter.replaceAll([const HomeRoute()]);
+                  }
+                },
+              );
             },
-          );
-        },
+          ),
+        ],
         child: BlocBuilder<ThemeBloc, ThemeState>(
           builder: (context, state) {
             return ToastificationWrapper(

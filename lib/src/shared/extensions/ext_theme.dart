@@ -18,7 +18,7 @@ extension ThemeX on BuildContext {
       scaffoldBackgroundColor: ColorName.surface,
       appBarTheme: AppBarTheme(
         titleTextStyle: textTheme.titleLarge?.copyWith(
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w500,
           color: ColorName.textPrimary,
         ),
         backgroundColor: ColorName.surface,
@@ -90,7 +90,7 @@ extension ThemeX on BuildContext {
       scaffoldBackgroundColor: ColorName.surfaceDark,
       appBarTheme: AppBarTheme(
         titleTextStyle: textTheme.titleLarge?.copyWith(
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w500,
           color: ColorName.textPrimaryDark,
         ),
         backgroundColor: ColorName.surfaceDark,

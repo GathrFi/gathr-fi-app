@@ -16,5 +16,7 @@
       }
     }
   },
-  "addressCopied": "Address copied to clipboard!"
+  "addressCopied": "Address copied to clipboard!",
+  "settings": "Settings",
+  "logout": "Logout"
 }

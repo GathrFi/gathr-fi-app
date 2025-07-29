@@ -66,7 +66,6 @@ class ProfileView extends StatelessWidget {
             ),
             Flexible(
               child: Column(
-                spacing: context.spacingXxs / 2,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [

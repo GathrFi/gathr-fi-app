@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
                       child: AnimatedContainer(
                         curve: Curves.easeInOut,
                         duration: const Duration(milliseconds: 300),
-                        padding: EdgeInsets.all(context.spacingLg),
+                        padding: EdgeInsets.all(context.spacingMd),
                         decoration: BoxDecoration(
                           color: isActive
                               ? ColorName.primary

@@ -4,7 +4,9 @@ import 'package:injectable/injectable.dart';
 import 'package:wallet/wallet.dart';
 import 'package:web3auth_flutter/output.dart';
 
+import '../../../data/models/user/user_profile.dart';
 import '../../../data/repositories/auth/auth_repository.dart';
+import '../../../data/repositories/user/user_profile_repository.dart';
 import '../../../shared/utils/result.dart';
 
 part 'profile_event.dart';
@@ -13,8 +15,10 @@ part 'profile_bloc.freezed.dart';
 
 @injectable
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
-  final AuthRepository repository;
-  ProfileBloc(this.repository) : super(const _Initial()) {
+  final AuthRepository authRepository;
+  final UserProfileRepository profileRepository;
+  ProfileBloc(this.authRepository, this.profileRepository)
+    : super(const _Initial()) {
     on<_Load>((event, emit) async {
       emit(const _Loading());
 
@@ -22,9 +26,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       String? userAddress;
       EtherAmount? userBalance;
 
-      final userInfoResult = await repository.getUserInfo();
-      final userAddressResult = await repository.getUserAddress();
-      final userBalanceResult = await repository.getUserBalance();
+      final userInfoResult = await authRepository.getUserInfo();
+      final userAddressResult = await authRepository.getUserAddress();
+      final userBalanceResult = await authRepository.getUserBalance();
 
       switch (userInfoResult) {
         case Ok<TorusUserInfo>():
@@ -47,13 +51,34 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
           emit(_Error(e: userBalanceResult.error));
       }
 
+      UserProfile? userProfile;
+      if (userAddress != null) {
+        final userProfileResult = await profileRepository.get(userAddress);
+        if (userProfileResult is Ok<UserProfile>) {
+          userProfile = userProfileResult.value;
+        }
+      }
+
       emit(
         _Loaded(
           userInfo: userInfo,
           userAddress: userAddress,
           userBalance: userBalance,
+          userProfile: userProfile,
         ),
       );
+    });
+
+    on<_Update>((event, emit) async {
+      emit(const _Loading());
+      final result = await profileRepository.update(event.userProfile);
+
+      switch (result) {
+        case Ok<bool>():
+          add(const _Load());
+        case Error<bool>():
+          emit(_Error(e: result.error));
+      }
     });
   }
 }

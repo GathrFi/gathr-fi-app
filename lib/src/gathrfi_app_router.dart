@@ -4,6 +4,7 @@ import 'features/home/pages/home_page.dart';
 import 'features/home/pages/home_settings_page.dart';
 import 'features/home/pages/home_wallet_page.dart';
 import 'features/onboarding/pages/onboarding_page.dart';
+import 'features/onboarding/pages/onboarding_profile_page.dart';
 import 'features/onboarding/pages/splash_page.dart';
 
 part 'gathrfi_app_router.gr.dart';
@@ -14,6 +15,7 @@ class GathrfiAppRouter extends RootStackRouter {
   List<AutoRoute> get routes => [
     AutoRoute(path: '/splash', page: SplashRoute.page, initial: true),
     AutoRoute(path: '/onboarding', page: OnboardingRoute.page),
+    AutoRoute(path: '/onboarding-profile', page: OnboardingProfileRoute.page),
     AutoRoute(
       path: '/home',
       page: HomeRoute.page,

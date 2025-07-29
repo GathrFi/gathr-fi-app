@@ -37,4 +37,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get addressCopied => 'Address copied to clipboard!';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get logout => 'Logout';
 }

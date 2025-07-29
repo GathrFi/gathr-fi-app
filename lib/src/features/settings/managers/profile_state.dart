@@ -8,6 +8,7 @@ class ProfileState with _$ProfileState {
     TorusUserInfo? userInfo,
     String? userAddress,
     EtherAmount? userBalance,
+    UserProfile? userProfile,
   }) = _Loaded;
   const factory ProfileState.error({Exception? e}) = _Error;
 }

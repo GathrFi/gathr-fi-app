@@ -15,13 +15,15 @@ class GlobalAddressButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(address);
     return Skeletonizer(
       enabled: address == null,
       child: Text.rich(
         TextSpan(
           text: address.toShortAddress(),
-          style: context.textTheme.titleLarge,
+          style: context.textTheme.titleLarge?.copyWith(
+            fontSize: context.spacingLg,
+            fontWeight: FontWeight.w500,
+          ),
           children: [
             if (address != null)
               WidgetSpan(

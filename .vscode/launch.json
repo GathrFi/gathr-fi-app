@@ -8,7 +8,9 @@
       "flutterMode": "debug",
       "program": "${workspaceFolder}/lib/main.dart",
       "args": [
-        "--dart-define=WEB3_AUTH_CLIENT_ID=BPMyOnqUfKPryiZlP2WBR8MFFRcK-m6BRXOsLCP7RAwF4IcoGkEUPv6bzBGnL9eGhBzBXNzDwQag9roAe3HTSbk"
+        "--dart-define=WEB3_AUTH_CLIENT_ID=BPMyOnqUfKPryiZlP2WBR8MFFRcK-m6BRXOsLCP7RAwF4IcoGkEUPv6bzBGnL9eGhBzBXNzDwQag9roAe3HTSbk",
+        "--dart-define=SUPABASE_URL=https://zxmulcumxeoapzybkivz.supabase.co",
+        "--dart-define=SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp4bXVsY3VteGVvYXB6eWJraXZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM0NDM0MDQsImV4cCI6MjA2OTAxOTQwNH0.hcPm2jqg62DfzbPYWeh8mr-G39ZInvTHFW8M7yEUJCI"
       ]
     }
   ]

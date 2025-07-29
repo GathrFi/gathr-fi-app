@@ -147,6 +147,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Address copied to clipboard!'**
   String get addressCopied;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logout;
 }
 
 class _AppLocalizationsDelegate

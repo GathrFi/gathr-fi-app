@@ -85,7 +85,6 @@ extension OverlaysX on BuildContext {
           decoration: BoxDecoration(
             color: backgroundColor,
             borderRadius: context.spacingSm.borderRadius,
-            border: Border.all(color: Colors.grey.shade300),
             boxShadow: [
               BoxShadow(
                 color: backgroundColor.withValues(alpha: 0.07),
