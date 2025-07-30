@@ -40,7 +40,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             spacing: context.spacingXs,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Assets.images.imgBrand.svg(height: 24.0),
+              Assets.images.imgBrandSvg.svg(height: 24.0),
               Text(context.l10n.appName),
             ],
           ),

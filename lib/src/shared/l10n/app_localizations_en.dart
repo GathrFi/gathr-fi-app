@@ -47,14 +47,84 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String greeting(String name) {
-    return 'Hello, $name';
+    return 'Hello, $name!';
   }
 
   @override
   String get addressCopied => 'Address copied to clipboard!';
 
   @override
+  String get account => 'Account';
+
+  @override
+  String get yourBalance => 'Your Balance';
+
+  @override
+  String get btnSend => 'Send';
+
+  @override
+  String get btnReceive => 'Receive';
+
+  @override
+  String get btnAddGroup => 'Add Group';
+
+  @override
+  String get btnAddBill => 'Add Bill';
+
+  @override
+  String get apyYieldPercentage => '5% APY';
+
+  @override
+  String get onlyUSDCAllowed => 'Only send USDC to this address.';
+
+  @override
+  String get walletAddress => 'Wallet Address';
+
+  @override
+  String get network => 'Network';
+
+  @override
+  String get networkDefault => 'Lisk Sepolia Testnet (ERC20)';
+
+  @override
+  String get myGroups => 'My Groups';
+
+  @override
+  String get ongoingExpenses => 'Ongoing Expenses';
+
+  @override
+  String get btnSeeAll => 'See All';
+
+  @override
   String get settings => 'Settings';
+
+  @override
+  String get settingWallet => 'My Wallet';
+
+  @override
+  String get settingWalletDesc => 'Manage your Web3 wallet';
+
+  @override
+  String get settingAppearance => 'App Appearance';
+
+  @override
+  String get settingAppearanceDesc => 'Choose app appearance';
+
+  @override
+  String get colorScheme => 'Color Scheme';
+
+  @override
+  String get colorSchemeDesc =>
+      'Switch from light to dark mode and vice versa, or let GathrFi match your device settings.';
+
+  @override
+  String get colorSchemeSystem => 'System';
+
+  @override
+  String get colorSchemeLight => 'Light';
+
+  @override
+  String get colorSchemeDark => 'Dark';
 
   @override
   String get logout => 'Logout';

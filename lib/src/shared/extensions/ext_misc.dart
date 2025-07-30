@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
 import '../assets/assets.gen.dart';
 import '../assets/colors.gen.dart';
 import '../l10n/app_localizations.dart';
@@ -38,5 +39,27 @@ extension NullableStringX on String? {
     final prefix = this!.substring(0, prefixLength);
     final suffix = this!.substring(this!.length - suffixLength);
     return '$prefix...$suffix';
+  }
+
+  String toCurrency({String locale = 'en_US', String symbol = '\$'}) {
+    final number = double.tryParse(orEmpty.replaceAll(',', '')) ?? 0;
+    final format = NumberFormat.currency(locale: locale, symbol: symbol);
+    return format.format(number);
+  }
+}
+
+extension DoubleX on double {
+  String toCurrency({
+    String locale = 'en_US',
+    String symbol = '\$',
+    int decimalDigits = 2,
+  }) {
+    final formatter = NumberFormat.currency(
+      locale: locale,
+      symbol: symbol,
+      decimalDigits: decimalDigits,
+    );
+
+    return formatter.format(this);
   }
 }

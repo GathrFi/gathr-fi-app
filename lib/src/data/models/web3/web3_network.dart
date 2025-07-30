@@ -12,6 +12,7 @@ abstract class Web3Network with _$Web3Network {
     required int chainId,
     required String currencySymbol,
     required String blockExplorer,
+    String? logo,
   }) = _Web3Network;
 
   factory Web3Network.fromJson(Map<String, dynamic> json) =>

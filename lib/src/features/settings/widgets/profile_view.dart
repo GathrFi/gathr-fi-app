@@ -18,7 +18,9 @@ class ProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileBloc, ProfileState>(
       builder: (context, state) {
-        final userInfo = state.mapOrNull(loaded: (value) => value.userInfo);
+        final userProfile = state.mapOrNull(
+          loaded: (value) => value.userProfile,
+        );
         final userAddress = state.mapOrNull(
           loaded: (value) => value.userAddress,
         );
@@ -28,11 +30,11 @@ class ProfileView extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Skeletonizer(
-              enabled: userInfo == null,
-              child: userInfo != null
+              enabled: userProfile == null,
+              child: userProfile != null
                   ? ClipOval(
                       child: CachedNetworkImage(
-                        imageUrl: userInfo.profileImage.orEmpty,
+                        imageUrl: userProfile.image.orEmpty,
                         height: context.spacingXlg * 2,
                         width: context.spacingXlg * 2,
                         errorWidget: (context, url, error) {
@@ -70,9 +72,9 @@ class ProfileView extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Skeletonizer(
-                    enabled: userInfo == null,
+                    enabled: userProfile == null,
                     child: Text(
-                      context.l10n.greeting((userInfo?.name).orDefault),
+                      context.l10n.greeting((userProfile?.username).orDefault),
                       style: context.textTheme.bodyLarge?.copyWith(
                         color: ColorName.textSecondary,
                       ),

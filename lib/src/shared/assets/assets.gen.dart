@@ -17,6 +17,14 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/ic-arrow-receive.svg
+  SvgGenImage get icArrowReceive =>
+      const SvgGenImage('assets/icons/ic-arrow-receive.svg');
+
+  /// File path: assets/icons/ic-arrow-send.svg
+  SvgGenImage get icArrowSend =>
+      const SvgGenImage('assets/icons/ic-arrow-send.svg');
+
   /// File path: assets/icons/ic-auto-mode.svg
   SvgGenImage get icAutoMode =>
       const SvgGenImage('assets/icons/ic-auto-mode.svg');
@@ -30,6 +38,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/ic-dark-mode.svg
   SvgGenImage get icDarkMode =>
       const SvgGenImage('assets/icons/ic-dark-mode.svg');
+
+  /// File path: assets/icons/ic-group.svg
+  SvgGenImage get icGroup => const SvgGenImage('assets/icons/ic-group.svg');
 
   /// File path: assets/icons/ic-home.svg
   SvgGenImage get icHome => const SvgGenImage('assets/icons/ic-home.svg');
@@ -45,6 +56,15 @@ class $AssetsIconsGen {
   SvgGenImage get icNotification =>
       const SvgGenImage('assets/icons/ic-notification.svg');
 
+  /// File path: assets/icons/ic-palette.svg
+  SvgGenImage get icPalette => const SvgGenImage('assets/icons/ic-palette.svg');
+
+  /// File path: assets/icons/ic-power.svg
+  SvgGenImage get icPower => const SvgGenImage('assets/icons/ic-power.svg');
+
+  /// File path: assets/icons/ic-receipt.svg
+  SvgGenImage get icReceipt => const SvgGenImage('assets/icons/ic-receipt.svg');
+
   /// File path: assets/icons/ic-setting.svg
   SvgGenImage get icSetting => const SvgGenImage('assets/icons/ic-setting.svg');
 
@@ -54,22 +74,33 @@ class $AssetsIconsGen {
   /// File path: assets/icons/ic-user.svg
   SvgGenImage get icUser => const SvgGenImage('assets/icons/ic-user.svg');
 
+  /// File path: assets/icons/ic-wallet-alt.svg
+  SvgGenImage get icWalletAlt =>
+      const SvgGenImage('assets/icons/ic-wallet-alt.svg');
+
   /// File path: assets/icons/ic-wallet.svg
   SvgGenImage get icWallet => const SvgGenImage('assets/icons/ic-wallet.svg');
 
   /// List of all assets
   List<SvgGenImage> get values => [
+    icArrowReceive,
+    icArrowSend,
     icAutoMode,
     icCopy,
     icCross,
     icDarkMode,
+    icGroup,
     icHome,
     icInfo,
     icLightMode,
     icNotification,
+    icPalette,
+    icPower,
+    icReceipt,
     icSetting,
     icTick,
     icUser,
+    icWalletAlt,
     icWallet,
   ];
 }
@@ -77,8 +108,25 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/img-brand-aave.svg
+  SvgGenImage get imgBrandAave =>
+      const SvgGenImage('assets/images/img-brand-aave.svg');
+
+  /// File path: assets/images/img-brand-usdc.png
+  AssetGenImage get imgBrandUsdcPng =>
+      const AssetGenImage('assets/images/img-brand-usdc.png');
+
+  /// File path: assets/images/img-brand-usdc.svg
+  SvgGenImage get imgBrandUsdcSvg =>
+      const SvgGenImage('assets/images/img-brand-usdc.svg');
+
+  /// File path: assets/images/img-brand.png
+  AssetGenImage get imgBrandPng =>
+      const AssetGenImage('assets/images/img-brand.png');
+
   /// File path: assets/images/img-brand.svg
-  SvgGenImage get imgBrand => const SvgGenImage('assets/images/img-brand.svg');
+  SvgGenImage get imgBrandSvg =>
+      const SvgGenImage('assets/images/img-brand.svg');
 
   /// File path: assets/images/img-onboarding.png
   AssetGenImage get imgOnboarding =>
@@ -110,7 +158,11 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<dynamic> get values => [
-    imgBrand,
+    imgBrandAave,
+    imgBrandUsdcPng,
+    imgBrandUsdcSvg,
+    imgBrandPng,
+    imgBrandSvg,
     imgOnboarding,
     imgSocialAppleNegative,
     imgSocialApple,

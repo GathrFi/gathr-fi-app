@@ -1,11 +1,16 @@
 import 'package:auto_route/auto_route.dart';
+import 'features/expenses/pages/expenses_form_page.dart';
+import 'features/groups/pages/group_form_page.dart';
 import 'features/home/pages/home_dashboard_page.dart';
 import 'features/home/pages/home_page.dart';
 import 'features/home/pages/home_settings_page.dart';
 import 'features/home/pages/home_wallet_page.dart';
+import 'features/home/pages/trx_receive_funds_page.dart';
+import 'features/home/pages/trx_send_funds_page.dart';
 import 'features/onboarding/pages/onboarding_page.dart';
 import 'features/onboarding/pages/onboarding_profile_page.dart';
 import 'features/onboarding/pages/splash_page.dart';
+import 'features/settings/pages/setting_appearance_page.dart';
 
 part 'gathrfi_app_router.gr.dart';
 
@@ -26,6 +31,31 @@ class GathrfiAppRouter extends RootStackRouter {
         RedirectRoute(path: '*', redirectTo: 'dashboard'),
         RedirectRoute(path: '', redirectTo: 'dashboard'),
       ],
+    ),
+    AutoRoute(
+      path: '/group-form',
+      page: GroupFormRoute.page,
+      fullscreenDialog: true,
+    ),
+    AutoRoute(
+      path: '/expense-form',
+      page: ExpensesFormRoute.page,
+      fullscreenDialog: true,
+    ),
+    AutoRoute(
+      path: '/send-funds',
+      page: TrxSendFundsRoute.page,
+      fullscreenDialog: true,
+    ),
+    AutoRoute(
+      path: '/receive-funds',
+      page: TrxReceiveFundsRoute.page,
+      fullscreenDialog: true,
+    ),
+    AutoRoute(
+      path: '/app-appearance',
+      page: SettingAppearanceRoute.page,
+      fullscreenDialog: true,
     ),
   ];
 }

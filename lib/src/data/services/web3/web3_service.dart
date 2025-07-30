@@ -8,6 +8,7 @@ class Web3Service {
       chainId: 4202,
       currencySymbol: 'ETH',
       blockExplorer: 'https://sepolia-blockscout.lisk.com',
+      logo: 'https://lisk.com/wp-content/uploads/2025/02/Logo-mark.svg',
     );
   }
 }

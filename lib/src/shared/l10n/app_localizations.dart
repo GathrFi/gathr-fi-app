@@ -169,7 +169,7 @@ abstract class AppLocalizations {
   /// No description provided for @greeting.
   ///
   /// In en, this message translates to:
-  /// **'Hello, {name}'**
+  /// **'Hello, {name}!'**
   String greeting(String name);
 
   /// No description provided for @addressCopied.
@@ -178,11 +178,149 @@ abstract class AppLocalizations {
   /// **'Address copied to clipboard!'**
   String get addressCopied;
 
+  /// No description provided for @account.
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get account;
+
+  /// No description provided for @yourBalance.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Balance'**
+  String get yourBalance;
+
+  /// No description provided for @btnSend.
+  ///
+  /// In en, this message translates to:
+  /// **'Send'**
+  String get btnSend;
+
+  /// No description provided for @btnReceive.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive'**
+  String get btnReceive;
+
+  /// No description provided for @btnAddGroup.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Group'**
+  String get btnAddGroup;
+
+  /// No description provided for @btnAddBill.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Bill'**
+  String get btnAddBill;
+
+  /// No description provided for @apyYieldPercentage.
+  ///
+  /// In en, this message translates to:
+  /// **'5% APY'**
+  String get apyYieldPercentage;
+
+  /// No description provided for @onlyUSDCAllowed.
+  ///
+  /// In en, this message translates to:
+  /// **'Only send USDC to this address.'**
+  String get onlyUSDCAllowed;
+
+  /// No description provided for @walletAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Wallet Address'**
+  String get walletAddress;
+
+  /// No description provided for @network.
+  ///
+  /// In en, this message translates to:
+  /// **'Network'**
+  String get network;
+
+  /// No description provided for @networkDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'Lisk Sepolia Testnet (ERC20)'**
+  String get networkDefault;
+
+  /// No description provided for @myGroups.
+  ///
+  /// In en, this message translates to:
+  /// **'My Groups'**
+  String get myGroups;
+
+  /// No description provided for @ongoingExpenses.
+  ///
+  /// In en, this message translates to:
+  /// **'Ongoing Expenses'**
+  String get ongoingExpenses;
+
+  /// No description provided for @btnSeeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'See All'**
+  String get btnSeeAll;
+
   /// No description provided for @settings.
   ///
   /// In en, this message translates to:
   /// **'Settings'**
   String get settings;
+
+  /// No description provided for @settingWallet.
+  ///
+  /// In en, this message translates to:
+  /// **'My Wallet'**
+  String get settingWallet;
+
+  /// No description provided for @settingWalletDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage your Web3 wallet'**
+  String get settingWalletDesc;
+
+  /// No description provided for @settingAppearance.
+  ///
+  /// In en, this message translates to:
+  /// **'App Appearance'**
+  String get settingAppearance;
+
+  /// No description provided for @settingAppearanceDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose app appearance'**
+  String get settingAppearanceDesc;
+
+  /// No description provided for @colorScheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Color Scheme'**
+  String get colorScheme;
+
+  /// No description provided for @colorSchemeDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Switch from light to dark mode and vice versa, or let GathrFi match your device settings.'**
+  String get colorSchemeDesc;
+
+  /// No description provided for @colorSchemeSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get colorSchemeSystem;
+
+  /// No description provided for @colorSchemeLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get colorSchemeLight;
+
+  /// No description provided for @colorSchemeDark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get colorSchemeDark;
 
   /// No description provided for @logout.
   ///

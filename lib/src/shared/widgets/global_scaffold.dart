@@ -12,6 +12,7 @@ class GlobalScaffold extends StatefulWidget {
     required this.appBarTitle,
     this.appBarActions,
     this.appBarBottom,
+    this.appBarHeight = kToolbarHeight,
     this.centerTitle = true,
     required this.body,
     this.bottomWidget,
@@ -20,6 +21,7 @@ class GlobalScaffold extends StatefulWidget {
   final Widget appBarTitle;
   final List<Widget>? appBarActions;
   final PreferredSizeWidget? appBarBottom;
+  final double appBarHeight;
   final bool centerTitle;
   final Widget body;
   final Widget? bottomWidget;
@@ -70,13 +72,14 @@ class _GlobalScaffoldState extends State<GlobalScaffold> {
       Brightness.dark => Colors.grey.shade800,
     };
 
+    final appBarHeight = widget.appBarHeight;
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: systemOverlayStyle,
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(
-            kToolbarHeight + (widget.appBarBottom?.preferredSize.height ?? 0),
+            appBarHeight + (widget.appBarBottom?.preferredSize.height ?? 0),
           ),
           child: TweenAnimationBuilder<double>(
             tween: Tween<double>(
@@ -90,6 +93,7 @@ class _GlobalScaffoldState extends State<GlobalScaffold> {
                 color: blurColor,
                 opacity: animatedOpacity,
                 child: AppBar(
+                  toolbarHeight: appBarHeight,
                   systemOverlayStyle: systemOverlayStyle,
                   backgroundColor: Colors.transparent,
                   shape: Border(
@@ -116,7 +120,7 @@ class _GlobalScaffoldState extends State<GlobalScaffold> {
           child: SingleChildScrollView(
             controller: _controller,
             padding: EdgeInsets.only(
-              top: MediaQuery.of(context).padding.top + kToolbarHeight,
+              top: MediaQuery.of(context).padding.top + appBarHeight,
               bottom: MediaQuery.of(context).padding.bottom + _bottomNavHeight,
             ),
             child: widget.body,

@@ -14,6 +14,7 @@ class GlobalButton extends StatelessWidget {
     required this.onTap,
     required this.child,
     this.size = GlobalButtonSize.small,
+    this.borderRadius,
     this.foregroundColor,
     this.backgroundColor,
   }) : style = GlobalButtonStyle.filled,
@@ -24,6 +25,7 @@ class GlobalButton extends StatelessWidget {
     required this.onTap,
     required this.child,
     this.size = GlobalButtonSize.small,
+    this.borderRadius,
     this.foregroundColor,
     this.outlineColor,
   }) : style = GlobalButtonStyle.outlined,
@@ -34,6 +36,7 @@ class GlobalButton extends StatelessWidget {
     required this.onTap,
     required this.child,
     this.size = GlobalButtonSize.small,
+    this.borderRadius,
     this.foregroundColor = ColorName.textPrimary,
   }) : style = GlobalButtonStyle.text,
        backgroundColor = null,
@@ -42,6 +45,7 @@ class GlobalButton extends StatelessWidget {
   final VoidCallback? onTap;
   final GlobalButtonStyle style;
   final GlobalButtonSize size;
+  final BorderRadiusGeometry? borderRadius;
   final Color? foregroundColor;
   final Color? backgroundColor;
   final Color? outlineColor;
@@ -50,7 +54,7 @@ class GlobalButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final buttonShape = RoundedRectangleBorder(
-      borderRadius: context.spacingSm.borderRadius,
+      borderRadius: borderRadius ?? context.spacingSm.borderRadius,
     );
 
     final buttonPadding = switch (size) {

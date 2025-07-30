@@ -13,7 +13,7 @@
   "iUsernameHint": "Pick a cool username",
   "iUsernameError": "Taken! Try being even cooler.",
   "btnContinue": "Continue",
-  "greeting": "Hello, {name}",
+  "greeting": "Hello, {name}!",
   "@greeting": {
     "placeholders": {
       "name": {
@@ -22,6 +22,29 @@
     }
   },
   "addressCopied": "Address copied to clipboard!",
+  "account": "Account",
+  "yourBalance": "Your Balance",
+  "btnSend": "Send",
+  "btnReceive": "Receive",
+  "btnAddGroup": "Add Group",
+  "btnAddBill": "Add Bill",
+  "apyYieldPercentage": "5% APY",
+  "onlyUSDCAllowed": "Only send USDC to this address.",
+  "walletAddress": "Wallet Address",
+  "network": "Network",
+  "networkDefault": "Lisk Sepolia Testnet (ERC20)",
+  "myGroups": "My Groups",
+  "ongoingExpenses": "Ongoing Expenses",
+  "btnSeeAll": "See All",
   "settings": "Settings",
+  "settingWallet": "My Wallet",
+  "settingWalletDesc": "Manage your Web3 wallet",
+  "settingAppearance": "App Appearance",
+  "settingAppearanceDesc": "Choose app appearance",
+  "colorScheme": "Color Scheme",
+  "colorSchemeDesc": "Switch from light to dark mode and vice versa, or let GathrFi match your device settings.",
+  "colorSchemeSystem": "System",
+  "colorSchemeLight": "Light",
+  "colorSchemeDark": "Dark",
   "logout": "Logout"
 }

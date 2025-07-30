@@ -38,7 +38,7 @@ class _SplashPageState extends State<SplashPage> {
             spacing: context.spacingXs,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Assets.images.imgBrand.svg(height: context.spacingXlg * 2.5),
+              Assets.images.imgBrandSvg.svg(height: context.spacingXlg * 2.5),
               Text(
                 context.l10n.appName,
                 style: context.textTheme.headlineLarge?.copyWith(
