@@ -59,7 +59,7 @@ class _GathrfiAppState extends State<GathrfiApp> {
               state.mapOrNull(
                 loaded: (value) {
                   final userProfile = value.userProfile;
-                  if (userProfile == null || userProfile.username == null) {
+                  if (userProfile.username == null) {
                     _appRouter.replaceAll([const OnboardingProfileRoute()]);
                   } else {
                     _appRouter.replaceAll([const HomeRoute()]);

@@ -1,0 +1,95 @@
+[
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_token", "type": "address" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "APY",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "SECONDS_PER_YEAR",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "amount", "type": "uint256" },
+      { "internalType": "uint256", "name": "startTime", "type": "uint256" }
+    ],
+    "name": "calculateYield",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "user", "type": "address" }
+    ],
+    "name": "getUserYield",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "", "type": "address" },
+      { "internalType": "uint256", "name": "", "type": "uint256" }
+    ],
+    "name": "supplies",
+    "outputs": [
+      { "internalType": "uint256", "name": "amount", "type": "uint256" },
+      { "internalType": "uint256", "name": "timestamp", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "asset", "type": "address" },
+      { "internalType": "uint256", "name": "amount", "type": "uint256" },
+      { "internalType": "address", "name": "onBehalfOf", "type": "address" }
+    ],
+    "name": "supply",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "token",
+    "outputs": [
+      { "internalType": "contract IERC20", "name": "", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "usdcToken",
+    "outputs": [
+      { "internalType": "contract MockUSDC", "name": "", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "asset", "type": "address" },
+      { "internalType": "uint256", "name": "amount", "type": "uint256" },
+      { "internalType": "address", "name": "to", "type": "address" }
+    ],
+    "name": "withdraw",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

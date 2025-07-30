@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../shared/assets/assets.gen.dart';
 import '../../../shared/assets/colors.gen.dart';
@@ -8,6 +9,7 @@ import '../../../shared/extensions/ext_misc.dart';
 import '../../../shared/widgets/global_button.dart';
 import '../../../shared/widgets/global_scaffold.dart';
 import '../../../shared/widgets/global_title_view.dart';
+import '../../settings/managers/profile_bloc.dart';
 import '../../settings/widgets/profile_view.dart';
 import '../widgets/balance_view.dart';
 
@@ -33,7 +35,15 @@ class HomeDashboardPage extends StatelessWidget {
         child: Column(
           spacing: context.spacingXlg,
           children: [
-            const BalanceView(),
+            BlocBuilder<ProfileBloc, ProfileState>(
+              builder: (context, state) {
+                final balance = state.whenOrNull(
+                  loaded: (profile) => profile.balance,
+                );
+
+                return BalanceView(amount: balance);
+              },
+            ),
             Column(
               spacing: context.spacingMd,
               children: [

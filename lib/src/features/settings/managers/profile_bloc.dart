@@ -1,12 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:wallet/wallet.dart';
-import 'package:web3auth_flutter/output.dart';
 
 import '../../../data/models/user/user_profile.dart';
-import '../../../data/repositories/auth/auth_repository.dart';
-import '../../../data/repositories/user/user_profile_repository.dart';
+import '../../../data/repositories/auth/user_profile_repository.dart';
 import '../../../shared/utils/result.dart';
 
 part 'profile_event.dart';
@@ -15,65 +12,18 @@ part 'profile_bloc.freezed.dart';
 
 @injectable
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
-  final AuthRepository authRepository;
   final UserProfileRepository profileRepository;
-  ProfileBloc(this.authRepository, this.profileRepository)
-    : super(const _Initial()) {
+  ProfileBloc(this.profileRepository) : super(const _Initial()) {
     on<_Load>((event, emit) async {
       emit(const _Loading());
+      final result = await profileRepository.get();
 
-      TorusUserInfo? userInfo;
-      String? userAddress;
-      EtherAmount? userBalance;
-
-      final userInfoResult = await authRepository.getUserInfo();
-      final userAddressResult = await authRepository.getUserAddress();
-      final userBalanceResult = await authRepository.getUserBalance();
-
-      switch (userInfoResult) {
-        case Ok<TorusUserInfo>():
-          userInfo = userInfoResult.value;
-        case Error<TorusUserInfo>():
-          emit(_Error(e: userInfoResult.error));
+      switch (result) {
+        case Ok<UserProfile>():
+          emit(_Loaded(result.value));
+        case Error<UserProfile>():
+          emit(_Error(e: result.error));
       }
-
-      switch (userAddressResult) {
-        case Ok<String>():
-          userAddress = userAddressResult.value;
-        case Error<String>():
-          emit(_Error(e: userAddressResult.error));
-      }
-
-      switch (userBalanceResult) {
-        case Ok<EtherAmount>():
-          userBalance = userBalanceResult.value;
-        case Error<EtherAmount>():
-          emit(_Error(e: userBalanceResult.error));
-      }
-
-      UserProfile userProfile = UserProfile(
-        email: userInfo?.email,
-        address: userAddress,
-      );
-
-      if (userAddress != null) {
-        final userProfileResult = await profileRepository.get(userAddress);
-        if (userProfileResult is Ok<UserProfile>) {
-          userProfile = userProfile.copyWith(
-            username: userProfileResult.value.username,
-            image: userProfileResult.value.image,
-          );
-        }
-      }
-
-      emit(
-        _Loaded(
-          userInfo: userInfo,
-          userAddress: userAddress,
-          userBalance: userBalance,
-          userProfile: userProfile,
-        ),
-      );
     });
 
     on<_Update>((event, emit) async {

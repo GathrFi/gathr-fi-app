@@ -178,17 +178,53 @@ abstract class AppLocalizations {
   /// **'Address copied to clipboard!'**
   String get addressCopied;
 
-  /// No description provided for @account.
-  ///
-  /// In en, this message translates to:
-  /// **'Account'**
-  String get account;
-
   /// No description provided for @yourBalance.
   ///
   /// In en, this message translates to:
   /// **'Your Balance'**
   String get yourBalance;
+
+  /// No description provided for @yourWalletBalance.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Wallet Balance'**
+  String get yourWalletBalance;
+
+  /// No description provided for @btnWithdraw.
+  ///
+  /// In en, this message translates to:
+  /// **'Withdraw'**
+  String get btnWithdraw;
+
+  /// No description provided for @btnDeposit.
+  ///
+  /// In en, this message translates to:
+  /// **'Deposit'**
+  String get btnDeposit;
+
+  /// No description provided for @iDepositLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount to Deposit'**
+  String get iDepositLabel;
+
+  /// No description provided for @iWithdrawLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount to Withdraw'**
+  String get iWithdrawLabel;
+
+  /// No description provided for @iAmountHint.
+  ///
+  /// In en, this message translates to:
+  /// **'0.00'**
+  String get iAmountHint;
+
+  /// No description provided for @iAmountExceedError.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount exceeds your available balance.'**
+  String get iAmountExceedError;
 
   /// No description provided for @btnSend.
   ///
@@ -256,6 +292,12 @@ abstract class AppLocalizations {
   /// **'Ongoing Expenses'**
   String get ongoingExpenses;
 
+  /// No description provided for @history.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get history;
+
   /// No description provided for @btnSeeAll.
   ///
   /// In en, this message translates to:
@@ -321,6 +363,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Dark'**
   String get colorSchemeDark;
+
+  /// No description provided for @usdSymbol.
+  ///
+  /// In en, this message translates to:
+  /// **'\$'**
+  String get usdSymbol;
 
   /// No description provided for @logout.
   ///

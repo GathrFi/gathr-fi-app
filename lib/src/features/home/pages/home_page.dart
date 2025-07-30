@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   int _activeIndex = 0;
   final _routes = const [
     HomeDashboardRoute(),
-    HomeWalletRoute(),
+    HomeHistoryRoute(),
     HomeSettingsRoute(),
   ];
 
@@ -127,7 +127,7 @@ class _HomePageState extends State<HomePage> {
   void _onTap(BuildContext context, int index) {
     setState(() => _activeIndex = index);
     context.replaceRoute(switch (index) {
-      1 => const HomeWalletRoute(),
+      1 => const HomeHistoryRoute(),
       2 => const HomeSettingsRoute(),
       _ => const HomeDashboardRoute(),
     });

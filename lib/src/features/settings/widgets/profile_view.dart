@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,11 +20,8 @@ class ProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileBloc, ProfileState>(
       builder: (context, state) {
-        final userProfile = state.mapOrNull(
-          loaded: (value) => value.userProfile,
-        );
-        final userAddress = state.mapOrNull(
-          loaded: (value) => value.userAddress,
+        final userProfile = state.whenOrNull(
+          loaded: (userProfile) => userProfile,
         );
 
         return Row(
@@ -37,6 +36,7 @@ class ProfileView extends StatelessWidget {
                         imageUrl: userProfile.image.orEmpty,
                         height: context.spacingXlg * 2,
                         width: context.spacingXlg * 2,
+                        errorListener: (value) => log(value.toString()),
                         errorWidget: (context, url, error) {
                           return Container(
                             padding: EdgeInsets.all(context.spacingXs),
@@ -80,7 +80,7 @@ class ProfileView extends StatelessWidget {
                       ),
                     ),
                   ),
-                  GlobalAddressButton(address: userAddress),
+                  GlobalAddressButton(address: userProfile?.address),
                 ],
               ),
             ),

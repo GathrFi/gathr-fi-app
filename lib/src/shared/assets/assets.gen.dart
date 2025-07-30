@@ -14,6 +14,22 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart' as _svg;
 import 'package:vector_graphics/vector_graphics.dart' as _vg;
 
+class $AssetsAbisGen {
+  const $AssetsAbisGen();
+
+  /// File path: assets/abis/gathrfi-abi.json
+  String get gathrfiAbi => 'assets/abis/gathrfi-abi.json';
+
+  /// File path: assets/abis/mock-aave-abi.json
+  String get mockAaveAbi => 'assets/abis/mock-aave-abi.json';
+
+  /// File path: assets/abis/mock-usdc-abi.json
+  String get mockUsdcAbi => 'assets/abis/mock-usdc-abi.json';
+
+  /// List of all assets
+  List<String> get values => [gathrfiAbi, mockAaveAbi, mockUsdcAbi];
+}
+
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
@@ -176,6 +192,7 @@ class $AssetsImagesGen {
 class Assets {
   const Assets._();
 
+  static const $AssetsAbisGen abis = $AssetsAbisGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }

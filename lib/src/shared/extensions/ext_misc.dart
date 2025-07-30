@@ -31,7 +31,9 @@ extension SvgX on SvgGenImage {
 
 extension NullableStringX on String? {
   String get orEmpty => this ?? '';
+
   String get orDefault => this ?? '-';
+
   String toShortAddress({int prefixLength = 7, int suffixLength = 5}) {
     if (this == null) return '0x0';
     if (this!.length <= prefixLength + suffixLength) return this!;
@@ -45,6 +47,11 @@ extension NullableStringX on String? {
     final number = double.tryParse(orEmpty.replaceAll(',', '')) ?? 0;
     final format = NumberFormat.currency(locale: locale, symbol: symbol);
     return format.format(number);
+  }
+
+  double toDouble() {
+    String clean = orEmpty.replaceAll(RegExp(r'[^\d.]'), '');
+    return double.tryParse(clean) ?? 0.0;
   }
 }
 

@@ -2,7 +2,8 @@ part of 'auth_repository.dart';
 
 @LazySingleton(as: AuthRepository)
 class AuthRepositoryImpl implements AuthRepository {
-  AuthRepositoryImpl();
+  AuthRepositoryImpl(this.web3client);
+  final Web3Client web3client;
 
   @override
   Future<Result<bool>> initialize() {
@@ -98,52 +99,6 @@ class AuthRepositoryImpl implements AuthRepository {
 
       return response;
     });
-  }
-
-  @override
-  Future<Result<TorusUserInfo>> getUserInfo() {
-    return Callbacks.executeWithTryCatch<TorusUserInfo>(
-      operation: () async {
-        final userInfo = await Web3AuthFlutter.getUserInfo();
-        return userInfo;
-      },
-    );
-  }
-
-  @override
-  Future<Result<String>> getUserAddress() {
-    return Callbacks.executeWithTryCatch<String>(
-      operation: () async {
-        final privKey = await SecureStorage.accountPrivKey;
-        if (privKey == null) throw const AppException('Account not found');
-
-        final credentials = EthPrivateKey.fromHex(privKey);
-        final address = credentials.address;
-        return address.eip55With0x;
-      },
-    );
-  }
-
-  @override
-  Future<Result<EtherAmount>> getUserBalance() {
-    return Callbacks.executeWithTryCatch<EtherAmount>(
-      operation: () async {
-        final privKey = await SecureStorage.accountPrivKey;
-        if (privKey == null) throw const AppException('Account not found');
-
-        final client = Web3Client(Web3Service.network.rpcEndpoint, Client());
-        final credentials = EthPrivateKey.fromHex(privKey);
-        final address = credentials.address;
-
-        final weiBalance = await client.getBalance(address);
-        final etherBalance = EtherAmount.fromBigInt(
-          EtherUnit.ether,
-          weiBalance.getInWei,
-        );
-
-        return etherBalance;
-      },
-    );
   }
 
   @override

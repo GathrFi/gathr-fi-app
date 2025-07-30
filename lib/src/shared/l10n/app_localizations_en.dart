@@ -54,10 +54,28 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addressCopied => 'Address copied to clipboard!';
 
   @override
-  String get account => 'Account';
+  String get yourBalance => 'Your Balance';
 
   @override
-  String get yourBalance => 'Your Balance';
+  String get yourWalletBalance => 'Your Wallet Balance';
+
+  @override
+  String get btnWithdraw => 'Withdraw';
+
+  @override
+  String get btnDeposit => 'Deposit';
+
+  @override
+  String get iDepositLabel => 'Amount to Deposit';
+
+  @override
+  String get iWithdrawLabel => 'Amount to Withdraw';
+
+  @override
+  String get iAmountHint => '0.00';
+
+  @override
+  String get iAmountExceedError => 'Amount exceeds your available balance.';
 
   @override
   String get btnSend => 'Send';
@@ -93,6 +111,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ongoingExpenses => 'Ongoing Expenses';
 
   @override
+  String get history => 'History';
+
+  @override
   String get btnSeeAll => 'See All';
 
   @override
@@ -125,6 +146,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get colorSchemeDark => 'Dark';
+
+  @override
+  String get usdSymbol => '\$';
 
   @override
   String get logout => 'Logout';

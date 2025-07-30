@@ -1,7 +1,11 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:http/http.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:web3dart/web3dart.dart';
+
+import 'data/services/web3/web3_service.dart';
 
 @module
 abstract class GathrfiAppDiModule {
@@ -13,4 +17,12 @@ abstract class GathrfiAppDiModule {
 
   @lazySingleton
   SupabaseClient get supabaseClient => Supabase.instance.client;
+
+  @lazySingleton
+  Client get httpClient => Client();
+
+  @lazySingleton
+  Web3Client get web3Client {
+    return Web3Client(Web3Service.chainConfig.rpcTarget, httpClient);
+  }
 }

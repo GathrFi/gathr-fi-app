@@ -43,12 +43,12 @@ class _OnboardingProfilePageState extends State<OnboardingProfilePage> {
       create: (context) => _profileFormBloc,
       child: BlocListener<ProfileBloc, ProfileState>(
         listener: (context, state) {
-          state.whenOrNull(
-            loading: () => context.showLoading(),
-            loaded: (_, _, _, _) => context.closeOverlay(),
-            error: (e) {
+          state.mapOrNull(
+            loading: (_) => context.showLoading(),
+            loaded: (_) => context.closeOverlay(),
+            error: (value) {
               context.closeOverlay();
-              context.showToast(message: e.toString());
+              context.showToast(message: value.e.toString());
             },
           );
         },

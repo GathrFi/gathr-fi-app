@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../data/models/user/user_profile.dart';
-import '../../../data/repositories/user/user_profile_repository.dart';
+import '../../../data/repositories/auth/user_profile_repository.dart';
 import '../../../shared/utils/result.dart';
 
 part 'profile_form_event.dart';

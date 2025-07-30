@@ -22,8 +22,14 @@
     }
   },
   "addressCopied": "Address copied to clipboard!",
-  "account": "Account",
   "yourBalance": "Your Balance",
+  "yourWalletBalance": "Your Wallet Balance",
+  "btnWithdraw": "Withdraw",
+  "btnDeposit": "Deposit",
+  "iDepositLabel": "Amount to Deposit",
+  "iWithdrawLabel": "Amount to Withdraw",
+  "iAmountHint": "0.00",
+  "iAmountExceedError": "Amount exceeds your available balance.",
   "btnSend": "Send",
   "btnReceive": "Receive",
   "btnAddGroup": "Add Group",
@@ -35,6 +41,7 @@
   "networkDefault": "Lisk Sepolia Testnet (ERC20)",
   "myGroups": "My Groups",
   "ongoingExpenses": "Ongoing Expenses",
+  "history": "History",
   "btnSeeAll": "See All",
   "settings": "Settings",
   "settingWallet": "My Wallet",
@@ -46,5 +53,6 @@
   "colorSchemeSystem": "System",
   "colorSchemeLight": "Light",
   "colorSchemeDark": "Dark",
+  "usdSymbol": "$",
   "logout": "Logout"
 }

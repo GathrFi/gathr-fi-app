@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:web3auth_flutter/input.dart';
 import 'package:web3auth_flutter/web3auth_flutter.dart';
 
 import '../../../data/services/web3/web3_service.dart';
@@ -42,15 +41,7 @@ class HomeSettingsPage extends StatelessWidget {
               GlobalMenuTile(
                 onTap: () async {
                   await Web3AuthFlutter.launchWalletServices(
-                    ChainConfig(
-                      chainId: Web3Service.network.chainId.toString(),
-                      rpcTarget: Web3Service.network.rpcEndpoint,
-                      blockExplorerUrl: Web3Service.network.blockExplorer,
-                      displayName: Web3Service.network.name,
-                      tickerName: Web3Service.network.name,
-                      ticker: Web3Service.network.currencySymbol,
-                      logo: Web3Service.network.logo,
-                    ),
+                    Web3Service.chainConfig,
                   );
                 },
                 isDense: true,

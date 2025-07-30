@@ -7,25 +7,21 @@ import '../../../shared/extensions/ext_misc.dart';
 import '../../../shared/widgets/global_scaffold.dart';
 
 @RoutePage()
-class TrxSendFundsPage extends StatefulWidget {
-  const TrxSendFundsPage({super.key});
+class HomeHistoryPage extends StatelessWidget {
+  const HomeHistoryPage({super.key});
 
-  @override
-  State<TrxSendFundsPage> createState() => _TrxSendFundsPageState();
-}
-
-class _TrxSendFundsPageState extends State<TrxSendFundsPage> {
   @override
   Widget build(BuildContext context) {
     return GlobalScaffold(
-      appBarTitle: Text(context.l10n.btnSend),
+      appBarTitle: Text(context.l10n.history),
       body: Padding(
         padding: EdgeInsets.all(context.spacingXlg),
-        child: const Column(
+        child: Column(
+          spacing: context.spacingMd,
           children: [
-            Placeholder(color: ColorName.border),
-            Placeholder(color: ColorName.border),
-            Placeholder(color: ColorName.border),
+            const Placeholder(color: ColorName.border),
+            const Placeholder(color: ColorName.border),
+            const Placeholder(color: ColorName.border),
           ],
         ),
       ),
