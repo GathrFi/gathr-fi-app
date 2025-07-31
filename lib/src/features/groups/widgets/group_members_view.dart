@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../data/models/user/user_profile.dart';
 import '../../../shared/assets/assets.gen.dart';
@@ -9,6 +10,7 @@ import '../../../shared/assets/colors.gen.dart';
 import '../../../shared/extensions/ext_dimens.dart';
 import '../../../shared/extensions/ext_misc.dart';
 import '../../../shared/extensions/ext_theme.dart';
+import '../managers/group_form_bloc.dart';
 
 class GroupMembersView extends StatelessWidget {
   const GroupMembersView({super.key, required this.members});
@@ -71,7 +73,11 @@ class GroupMembersView extends StatelessWidget {
               Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    context.read<GroupFormBloc>().add(
+                      GroupFormEvent.removeMember(members.indexOf(member)),
+                    );
+                  },
                   customBorder: const CircleBorder(),
                   child: Padding(
                     padding: EdgeInsets.all(context.spacingXxs),

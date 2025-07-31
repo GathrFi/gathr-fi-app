@@ -4,6 +4,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../data/models/group/group.dart';
 import '../../../data/models/user/user_profile.dart';
+import '../../../shared/extensions/ext_misc.dart';
 
 part 'group_form_event.dart';
 part 'group_form_state.dart';
@@ -17,17 +18,33 @@ class GroupFormBloc extends Bloc<GroupFormEvent, GroupFormState> {
     });
 
     on<_AddMember>((event, emit) {
-      final members = List<UserProfile>.from(state.group.members ?? []);
-      members.add(event.member);
+      final members = List<String>.from(state.group.members ?? []);
+      final memberProfiles = List<UserProfile>.from(state.memberProfiles);
 
-      emit(state.copyWith(group: state.group.copyWith(members: members)));
+      members.add(event.member.address.orEmpty);
+      memberProfiles.add(event.member);
+
+      emit(
+        state.copyWith(
+          group: state.group.copyWith(members: members),
+          memberProfiles: memberProfiles,
+        ),
+      );
     });
 
     on<_RemoveMember>((event, emit) {
-      final members = List<UserProfile>.from(state.group.members ?? []);
-      members.removeAt(event.index);
+      final members = List<String>.from(state.group.members ?? []);
+      final memberProfiles = List<UserProfile>.from(state.memberProfiles);
 
-      emit(state.copyWith(group: state.group.copyWith(members: members)));
+      members.removeAt(event.index);
+      memberProfiles.removeAt(event.index);
+
+      emit(
+        state.copyWith(
+          group: state.group.copyWith(members: members),
+          memberProfiles: memberProfiles,
+        ),
+      );
     });
   }
 }

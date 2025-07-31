@@ -9,6 +9,7 @@ import '../../../shared/extensions/ext_misc.dart';
 import '../../../shared/widgets/global_button.dart';
 import '../../../shared/widgets/global_scaffold.dart';
 import '../../../shared/widgets/global_title_view.dart';
+import '../../groups/widgets/group_list_view.dart';
 import '../../settings/managers/profile_bloc.dart';
 import '../../settings/widgets/profile_view.dart';
 import '../widgets/balance_view.dart';
@@ -51,7 +52,7 @@ class HomeDashboardPage extends StatelessWidget {
                   title: context.l10n.myGroups,
                   onSeeAllTap: () {},
                 ),
-                const Placeholder(color: ColorName.border, fallbackHeight: 100),
+                const GroupListView(),
               ],
             ),
             Column(
