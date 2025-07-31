@@ -21,11 +21,18 @@ class TrxDepositFundsPage extends StatefulWidget {
 
 class _TrxDepositFundsPageState extends State<TrxDepositFundsPage> {
   late final TransactionsBloc _transactionsBloc;
+  final _amountController = TextEditingController();
 
   @override
   void initState() {
     _transactionsBloc = locator<TransactionsBloc>();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _amountController.dispose();
+    super.dispose();
   }
 
   @override
@@ -36,7 +43,12 @@ class _TrxDepositFundsPageState extends State<TrxDepositFundsPage> {
         listener: (context, state) {
           state.whenOrNull(
             loading: () => context.showLoading(),
-            success: (txHash) => context.closeOverlay(),
+            success: (txHash) {
+              context.closeOverlay();
+              context.showTxSuccessToast(txHash: txHash);
+              context.read<ProfileBloc>().add(const ProfileEvent.load());
+              _amountController.clear();
+            },
             error: (e) {
               context.closeOverlay();
               context.showToast(message: e.toString());
@@ -55,6 +67,7 @@ class _TrxDepositFundsPageState extends State<TrxDepositFundsPage> {
 
                 return TransactionFormView.deposit(
                   balance: userProfile?.walletBalance,
+                  controller: _amountController,
                   onSubmitted: (amount) {
                     _transactionsBloc.add(TransactionsEvent.deposit(amount));
                   },

@@ -24,5 +24,17 @@ class TransactionsBloc extends Bloc<TransactionsEvent, TransactionsState> {
           emit(_Error(e: result.error));
       }
     });
+
+    on<_Withdraw>((event, emit) async {
+      emit(const _Loading());
+      final result = await repository.withdraw(event.amount);
+
+      switch (result) {
+        case Ok<String>():
+          emit(_Success(result.value));
+        case Error<String>():
+          emit(_Error(e: result.error));
+      }
+    });
   }
 }

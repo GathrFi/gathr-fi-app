@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:toastification/toastification.dart';
 import 'features/onboarding/managers/auth_bloc.dart';
 import 'features/settings/managers/profile_bloc.dart';
@@ -18,6 +19,8 @@ class GathrfiApp extends StatefulWidget {
 
 class _GathrfiAppState extends State<GathrfiApp> {
   late final GathrfiAppRouter _appRouter;
+  late final ValueNotifier<GraphQLClient> _graphQLClient;
+
   late final ThemeBloc _themeBloc;
   late final AuthBloc _authBloc;
   late final ProfileBloc _profileBloc;
@@ -25,8 +28,11 @@ class _GathrfiAppState extends State<GathrfiApp> {
   @override
   void initState() {
     _appRouter = GathrfiAppRouter();
+    _graphQLClient = ValueNotifier(locator<GraphQLClient>());
+
     _themeBloc = locator<ThemeBloc>();
     _themeBloc.add(const ThemeEvent.initialize());
+
     _authBloc = locator<AuthBloc>();
     _profileBloc = locator<ProfileBloc>();
     super.initState();
@@ -58,11 +64,15 @@ class _GathrfiAppState extends State<GathrfiApp> {
             listener: (context, state) {
               state.mapOrNull(
                 loaded: (value) {
-                  final userProfile = value.userProfile;
-                  if (userProfile.username == null) {
-                    _appRouter.replaceAll([const OnboardingProfileRoute()]);
-                  } else {
-                    _appRouter.replaceAll([const HomeRoute()]);
+                  final currentRouteName = _appRouter.current.name;
+                  if (currentRouteName == SplashRoute.name ||
+                      currentRouteName == OnboardingRoute.name) {
+                    final userProfile = value.userProfile;
+                    if (userProfile.username == null) {
+                      _appRouter.replaceAll([const OnboardingProfileRoute()]);
+                    } else {
+                      _appRouter.replaceAll([const HomeRoute()]);
+                    }
                   }
                 },
               );
@@ -72,18 +82,22 @@ class _GathrfiAppState extends State<GathrfiApp> {
         child: BlocBuilder<ThemeBloc, ThemeState>(
           builder: (context, state) {
             return ToastificationWrapper(
-              child: MaterialApp.router(
-                debugShowCheckedModeBanner: false,
-                localizationsDelegates: AppLocalizations.localizationsDelegates,
-                supportedLocales: AppLocalizations.supportedLocales,
-                themeMode: state.mode,
-                theme: context.themeData,
-                darkTheme: context.darkThemeData,
-                routerConfig: _appRouter.config(),
-                builder: (context, child) => GestureDetector(
-                  onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-                  behavior: HitTestBehavior.opaque,
-                  child: child,
+              child: GraphQLProvider(
+                client: _graphQLClient,
+                child: MaterialApp.router(
+                  debugShowCheckedModeBanner: false,
+                  localizationsDelegates:
+                      AppLocalizations.localizationsDelegates,
+                  supportedLocales: AppLocalizations.supportedLocales,
+                  themeMode: state.mode,
+                  theme: context.themeData,
+                  darkTheme: context.darkThemeData,
+                  routerConfig: _appRouter.config(),
+                  builder: (context, child) => GestureDetector(
+                    onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+                    behavior: HitTestBehavior.opaque,
+                    child: child,
+                  ),
                 ),
               ),
             );

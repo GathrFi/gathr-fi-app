@@ -120,6 +120,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settings => 'Settings';
 
   @override
+  String get transactionSuccess => 'Transaction successful';
+
+  @override
+  String get btnView => 'View';
+
+  @override
   String get settingWallet => 'My Wallet';
 
   @override

@@ -44,6 +44,8 @@
   "history": "History",
   "btnSeeAll": "See All",
   "settings": "Settings",
+  "transactionSuccess": "Transaction successful",
+  "btnView": "View",
   "settingWallet": "My Wallet",
   "settingWalletDesc": "Manage your Web3 wallet",
   "settingAppearance": "App Appearance",

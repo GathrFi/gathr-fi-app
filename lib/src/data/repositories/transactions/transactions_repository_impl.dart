@@ -85,6 +85,7 @@ class TransactionsRepositoryImpl implements TransactionsRepository {
           ),
         );
 
+        await Web3Service.waitForTxReceipt(txDepositFunds);
         return txDepositFunds;
       },
     );
@@ -107,6 +108,7 @@ class TransactionsRepositoryImpl implements TransactionsRepository {
           ),
         );
 
+        await Web3Service.waitForTxReceipt(txWithdrawFunds);
         return txWithdrawFunds;
       },
     );

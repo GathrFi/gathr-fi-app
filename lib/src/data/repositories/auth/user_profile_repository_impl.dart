@@ -2,10 +2,15 @@ part of 'user_profile_repository.dart';
 
 @LazySingleton(as: UserProfileRepository)
 class UserProfileRepositoryImpl implements UserProfileRepository {
-  UserProfileRepositoryImpl(this.supabaseClient, this.web3client);
+  UserProfileRepositoryImpl(
+    this.supabaseClient,
+    this.web3client,
+    this.graphQLService,
+  );
 
   final SupabaseClient supabaseClient;
   final Web3Client web3client;
+  final GraphQLService graphQLService;
 
   FunctionsClient get _functions => supabaseClient.functions;
 
@@ -44,6 +49,38 @@ class UserProfileRepositoryImpl implements UserProfileRepository {
             image: profile.image,
           );
         }
+
+        final statsQuery = r'''
+          query GetUserStats($id: String!) {
+            userStats(id: $id) {
+              id
+              balance
+              yieldPercentage
+              yieldAmount
+            }
+          }
+        ''';
+
+        final statsQueryParams = {'id': address.eip55With0x};
+        final statsResult = await graphQLService.query(
+          statsQuery,
+          statsQueryParams,
+        );
+
+        final stats = statsResult.data?['userStats'] as Map<String, dynamic>?;
+        final balance = BigInt.tryParse(stats?['balance'])?.toTokenAmount();
+        final yieldPercentage = BigInt.tryParse(
+          stats?['yieldPercentage'],
+        )?.toTokenAmount(decimals: 2);
+        final yiledAmount = BigInt.tryParse(
+          stats?['yieldAmount'],
+        )?.toTokenAmount();
+
+        userProfile = userProfile.copyWith(
+          balance: balance,
+          yieldPercentage: yieldPercentage,
+          yieldAmount: yiledAmount,
+        );
 
         return userProfile;
       },

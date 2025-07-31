@@ -310,6 +310,18 @@ abstract class AppLocalizations {
   /// **'Settings'**
   String get settings;
 
+  /// No description provided for @transactionSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Transaction successful'**
+  String get transactionSuccess;
+
+  /// No description provided for @btnView.
+  ///
+  /// In en, this message translates to:
+  /// **'View'**
+  String get btnView;
+
   /// No description provided for @settingWallet.
   ///
   /// In en, this message translates to:

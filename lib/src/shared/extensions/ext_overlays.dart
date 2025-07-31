@@ -7,6 +7,7 @@ import 'package:toastification/toastification.dart';
 
 import '../assets/assets.gen.dart';
 import '../assets/colors.gen.dart';
+import '../widgets/global_button.dart';
 import 'ext_dimens.dart';
 import 'ext_misc.dart';
 import 'ext_theme.dart';
@@ -57,18 +58,24 @@ extension OverlaysX on BuildContext {
 
   void showToast({
     required String message,
+    String? desc,
     TextStyle? textStyle,
+    TextStyle? descTextStyle,
     Duration duration = const Duration(seconds: 5),
     bool alwaysShow = false,
+    EdgeInsetsGeometry? padding,
+    Color? bgColor,
+    Color? fgColor,
+    Widget? actionWidget,
   }) {
     final backgroundColor = switch (brightness) {
-      Brightness.dark => ColorName.surface,
-      Brightness.light => ColorName.surfaceDark,
+      Brightness.dark => bgColor ?? ColorName.surface,
+      Brightness.light => bgColor ?? ColorName.surfaceDark,
     };
 
     final foregroundColor = switch (brightness) {
-      Brightness.dark => ColorName.surfaceDark,
-      Brightness.light => ColorName.surface,
+      Brightness.dark => fgColor ?? ColorName.surfaceDark,
+      Brightness.light => fgColor ?? ColorName.surface,
     };
 
     toastification.showCustom(
@@ -78,10 +85,12 @@ extension OverlaysX on BuildContext {
       builder: (context, holder) => Center(
         child: Container(
           margin: EdgeInsets.only(bottom: context.spacingMd),
-          padding: EdgeInsets.symmetric(
-            horizontal: context.spacingLg,
-            vertical: context.spacingSm,
-          ),
+          padding:
+              padding ??
+              EdgeInsets.symmetric(
+                horizontal: context.spacingLg,
+                vertical: context.spacingSm,
+              ),
           decoration: BoxDecoration(
             color: backgroundColor,
             borderRadius: context.spacingSm.borderRadius,
@@ -97,20 +106,58 @@ extension OverlaysX on BuildContext {
           child: Row(
             spacing: context.spacingXs,
             mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Assets.icons.icInfo.icon(context, color: foregroundColor),
               Flexible(
-                child: Text(
-                  message,
-                  style:
-                      textStyle ??
-                      context.textTheme.bodyLarge?.copyWith(
-                        color: foregroundColor,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      message,
+                      style:
+                          textStyle ??
+                          context.textTheme.bodyLarge?.copyWith(
+                            color: foregroundColor,
+                          ),
+                    ),
+                    if (desc != null)
+                      Text(
+                        desc,
+                        style:
+                            descTextStyle ??
+                            context.textTheme.bodyLarge?.copyWith(
+                              color: foregroundColor.withAlpha(
+                                (0.7 * 255).round(),
+                              ),
+                            ),
                       ),
+                  ],
                 ),
               ),
+              actionWidget ?? const SizedBox(),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  void showTxSuccessToast({required String txHash}) {
+    showToast(
+      message: l10n.transactionSuccess,
+      desc: txHash.toShortAddress(),
+      padding: EdgeInsets.symmetric(
+        horizontal: spacingXs,
+        vertical: spacingXxs,
+      ),
+      actionWidget: Padding(
+        padding: EdgeInsets.only(left: spacingMd),
+        child: GlobalButton.filled(
+          onTap: () {},
+          backgroundColor: ColorName.green,
+          foregroundColor: ColorName.surfaceDark,
+          child: Text(l10n.btnView),
         ),
       ),
     );

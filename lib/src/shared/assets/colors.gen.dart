@@ -23,6 +23,9 @@ class ColorName {
   /// Color: #262A30
   static const Color borderDark = Color(0xFF262A30);
 
+  /// Color: #CAFD7B
+  static const Color green = Color(0xFFCAFD7B);
+
   /// Color: #FF7E68
   static const Color orange = Color(0xFFFF7E68);
 

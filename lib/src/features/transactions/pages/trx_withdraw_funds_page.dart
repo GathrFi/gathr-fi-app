@@ -2,10 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../gathrfi_app_di.dart';
 import '../../../shared/extensions/ext_dimens.dart';
 import '../../../shared/extensions/ext_misc.dart';
+import '../../../shared/extensions/ext_overlays.dart';
 import '../../../shared/widgets/global_scaffold.dart';
 import '../../settings/managers/profile_bloc.dart';
+import '../managers/transactions_bloc.dart';
 import '../widgets/transaction_form_view.dart';
 
 @RoutePage()
@@ -17,23 +20,61 @@ class TrxWithdrawFundsPage extends StatefulWidget {
 }
 
 class _TrxWithdrawFundsPageState extends State<TrxWithdrawFundsPage> {
+  late final TransactionsBloc _transactionsBloc;
+  final _amountController = TextEditingController();
+
+  @override
+  void initState() {
+    _transactionsBloc = locator<TransactionsBloc>();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _amountController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return GlobalScaffold(
-      appBarTitle: Text(context.l10n.btnWithdraw),
-      body: Padding(
-        padding: EdgeInsets.all(context.spacingXlg),
-        child: BlocBuilder<ProfileBloc, ProfileState>(
-          builder: (context, state) {
-            final userProfile = state.whenOrNull(
-              loaded: (userProfile) => userProfile,
-            );
+    return BlocProvider<TransactionsBloc>(
+      create: (context) => _transactionsBloc,
+      child: BlocListener<TransactionsBloc, TransactionsState>(
+        listener: (context, state) {
+          state.whenOrNull(
+            loading: () => context.showLoading(),
+            success: (txHash) {
+              context.closeOverlay();
+              context.showTxSuccessToast(txHash: txHash);
+              context.read<ProfileBloc>().add(const ProfileEvent.load());
+              _amountController.clear();
+            },
+            error: (e) {
+              context.closeOverlay();
+              context.showToast(message: e.toString());
+            },
+          );
+        },
+        child: GlobalScaffold(
+          appBarTitle: Text(context.l10n.btnWithdraw),
+          body: Padding(
+            padding: EdgeInsets.all(context.spacingXlg),
+            child: BlocBuilder<ProfileBloc, ProfileState>(
+              builder: (context, state) {
+                final userProfile = state.whenOrNull(
+                  loaded: (userProfile) => userProfile,
+                );
 
-            return TransactionFormView.withdraw(
-              balance: userProfile?.balance,
-              onSubmitted: (amount) {},
-            );
-          },
+                return TransactionFormView.withdraw(
+                  balance: userProfile?.balance,
+                  controller: _amountController,
+                  onSubmitted: (amount) {
+                    _transactionsBloc.add(TransactionsEvent.withdraw(amount));
+                  },
+                );
+              },
+            ),
+          ),
         ),
       ),
     );

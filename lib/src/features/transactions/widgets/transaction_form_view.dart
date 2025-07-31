@@ -15,17 +15,20 @@ enum TransactionFormViewType { withdraw, deposit }
 class TransactionFormView extends StatefulWidget {
   const TransactionFormView.withdraw({
     super.key,
+    required this.controller,
     required this.balance,
     required this.onSubmitted,
   }) : type = TransactionFormViewType.withdraw;
 
   const TransactionFormView.deposit({
     super.key,
+    required this.controller,
     required this.balance,
     required this.onSubmitted,
   }) : type = TransactionFormViewType.deposit;
 
   final double? balance;
+  final TextEditingController controller;
   final Function(double amount) onSubmitted;
   final TransactionFormViewType type;
 
@@ -34,14 +37,6 @@ class TransactionFormView extends StatefulWidget {
 }
 
 class _TransactionFormViewState extends State<TransactionFormView> {
-  final _amountController = TextEditingController();
-
-  @override
-  void dispose() {
-    _amountController.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -72,7 +67,7 @@ class _TransactionFormViewState extends State<TransactionFormView> {
               ),
               Expanded(
                 child: TextField(
-                  controller: _amountController,
+                  controller: widget.controller,
                   style: context.textTheme.displayMedium,
                   inputFormatters: [CurrencyInputFormatter()],
                   keyboardType: const TextInputType.numberWithOptions(
@@ -94,7 +89,7 @@ class _TransactionFormViewState extends State<TransactionFormView> {
                   ),
                   onChanged: (value) {
                     if (value.toDouble() <= 0) {
-                      _amountController.clear();
+                      widget.controller.clear();
                     }
                   },
                 ),
@@ -103,7 +98,7 @@ class _TransactionFormViewState extends State<TransactionFormView> {
           ),
         ),
         ValueListenableBuilder(
-          valueListenable: _amountController,
+          valueListenable: widget.controller,
           builder: (context, value, child) {
             final balance = widget.balance ?? 0;
             final amount = value.text.toDouble();
@@ -132,7 +127,7 @@ class _TransactionFormViewState extends State<TransactionFormView> {
           },
         ),
         ValueListenableBuilder(
-          valueListenable: _amountController,
+          valueListenable: widget.controller,
           builder: (context, value, child) {
             final balance = widget.balance ?? 0;
             final amount = value.text.toDouble();
