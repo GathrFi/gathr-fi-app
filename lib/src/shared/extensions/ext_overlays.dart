@@ -99,13 +99,15 @@ extension OverlaysX on BuildContext {
             mainAxisSize: MainAxisSize.min,
             children: [
               Assets.icons.icInfo.icon(context, color: foregroundColor),
-              Text(
-                message,
-                style:
-                    textStyle ??
-                    context.textTheme.bodyLarge?.copyWith(
-                      color: foregroundColor,
-                    ),
+              Flexible(
+                child: Text(
+                  message,
+                  style:
+                      textStyle ??
+                      context.textTheme.bodyLarge?.copyWith(
+                        color: foregroundColor,
+                      ),
+                ),
               ),
             ],
           ),

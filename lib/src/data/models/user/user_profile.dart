@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:wallet/wallet.dart';
 
 part 'user_profile.freezed.dart';
 part 'user_profile.g.dart';
@@ -11,13 +10,10 @@ abstract class UserProfile with _$UserProfile {
     String? email,
     String? username,
     String? address,
-    @JsonKey(includeFromJson: false, includeToJson: false)
-    EtherAmount? walletBalance,
-    @JsonKey(includeFromJson: false, includeToJson: false) EtherAmount? balance,
-    @JsonKey(includeFromJson: false, includeToJson: false)
-    EtherAmount? yieldPercentage,
-    @JsonKey(includeFromJson: false, includeToJson: false)
-    EtherAmount? yieldAmount,
+    double? walletBalance,
+    double? balance,
+    double? yieldPercentage,
+    double? yieldAmount,
     String? image,
   }) = _UserProfile;
 

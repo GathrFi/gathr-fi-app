@@ -26,13 +26,10 @@ class UserProfileRepositoryImpl implements UserProfileRepository {
         UserProfile userProfile = UserProfile(
           email: userInfo.email,
           address: userAddress,
-          walletBalance: EtherAmount.fromBigInt(
-            EtherUnit.ether,
-            mockUsdcResponse[0],
-          ),
-          balance: EtherAmount.zero(),
-          yieldPercentage: EtherAmount.zero(),
-          yieldAmount: EtherAmount.zero(),
+          walletBalance: (mockUsdcResponse[0] as BigInt).toTokenAmount(),
+          balance: BigInt.from(0).toTokenAmount(),
+          yieldPercentage: BigInt.from(0).toTokenAmount(),
+          yieldAmount: BigInt.from(0).toTokenAmount(),
         );
 
         final profileResponse = await _functions.invoke(

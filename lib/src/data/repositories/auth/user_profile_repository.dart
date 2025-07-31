@@ -1,6 +1,5 @@
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:wallet/wallet.dart';
 import 'package:web3auth_flutter/web3auth_flutter.dart';
 import 'package:web3dart/web3dart.dart';
 

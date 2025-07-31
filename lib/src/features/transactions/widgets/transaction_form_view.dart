@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wallet/wallet.dart';
 
 import '../../../shared/assets/assets.gen.dart';
 import '../../../shared/assets/colors.gen.dart';
@@ -9,7 +8,7 @@ import '../../../shared/extensions/ext_theme.dart';
 import '../../../shared/utils/formatter.dart';
 import '../../../shared/widgets/global_button.dart';
 import '../../../shared/widgets/global_label_wrapper.dart';
-import 'balance_view.dart';
+import '../../home/widgets/balance_view.dart';
 
 enum TransactionFormViewType { withdraw, deposit }
 
@@ -26,7 +25,7 @@ class TransactionFormView extends StatefulWidget {
     required this.onSubmitted,
   }) : type = TransactionFormViewType.deposit;
 
-  final EtherAmount? balance;
+  final double? balance;
   final Function(double amount) onSubmitted;
   final TransactionFormViewType type;
 
@@ -45,8 +44,6 @@ class _TransactionFormViewState extends State<TransactionFormView> {
 
   @override
   Widget build(BuildContext context) {
-    final balanceInDouble = widget.balance?.getValueInUnit(EtherUnit.ether);
-
     return Column(
       spacing: context.spacingMd,
       mainAxisSize: MainAxisSize.min,
@@ -108,7 +105,7 @@ class _TransactionFormViewState extends State<TransactionFormView> {
         ValueListenableBuilder(
           valueListenable: _amountController,
           builder: (context, value, child) {
-            final balance = balanceInDouble ?? 0;
+            final balance = widget.balance ?? 0;
             final amount = value.text.toDouble();
 
             return AnimatedSwitcher(
@@ -137,7 +134,7 @@ class _TransactionFormViewState extends State<TransactionFormView> {
         ValueListenableBuilder(
           valueListenable: _amountController,
           builder: (context, value, child) {
-            final balance = balanceInDouble ?? 0;
+            final balance = widget.balance ?? 0;
             final amount = value.text.toDouble();
 
             return SizedBox(

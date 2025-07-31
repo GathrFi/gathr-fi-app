@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import 'package:wallet/wallet.dart';
 
 import '../../../gathrfi_app_router.dart';
 import '../../../shared/assets/assets.gen.dart';
@@ -20,7 +19,7 @@ class BalanceView extends StatelessWidget {
   });
 
   final String? customLabel;
-  final EtherAmount? amount;
+  final double? amount;
   final bool showAPYStats;
   final bool showShortcuts;
 
@@ -51,9 +50,7 @@ class BalanceView extends StatelessWidget {
                     enabled: amount == null,
                     child: amount != null
                         ? Text(
-                            amount!
-                                .getValueInUnit(EtherUnit.ether)
-                                .toCurrency(),
+                            amount!.toCurrency(),
                             style: context.textTheme.displayMedium,
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,

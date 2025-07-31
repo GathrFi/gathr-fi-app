@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -20,6 +22,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
       switch (result) {
         case Ok<UserProfile>():
+          log(result.value.toString());
           emit(_Loaded(result.value));
         case Error<UserProfile>():
           emit(_Error(e: result.error));
