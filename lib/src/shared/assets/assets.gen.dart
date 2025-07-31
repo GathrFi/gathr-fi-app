@@ -144,9 +144,17 @@ class $AssetsImagesGen {
   SvgGenImage get imgBrandSvg =>
       const SvgGenImage('assets/images/img-brand.svg');
 
+  /// File path: assets/images/img-group.png
+  AssetGenImage get imgGroup =>
+      const AssetGenImage('assets/images/img-group.png');
+
   /// File path: assets/images/img-onboarding.png
   AssetGenImage get imgOnboarding =>
       const AssetGenImage('assets/images/img-onboarding.png');
+
+  /// File path: assets/images/img-rhombus.png
+  AssetGenImage get imgRhombus =>
+      const AssetGenImage('assets/images/img-rhombus.png');
 
   /// File path: assets/images/img-social-apple-negative.svg
   SvgGenImage get imgSocialAppleNegative =>
@@ -179,7 +187,9 @@ class $AssetsImagesGen {
     imgBrandUsdcSvg,
     imgBrandPng,
     imgBrandSvg,
+    imgGroup,
     imgOnboarding,
+    imgRhombus,
     imgSocialAppleNegative,
     imgSocialApple,
     imgSocialDiscordNegative,

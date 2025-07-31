@@ -87,6 +87,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get btnAddGroup => 'Add Group';
 
   @override
+  String get iGroupNameLabel => 'Group Name';
+
+  @override
+  String get iGroupNameHint => 'e.g. Weekend Trip, Office Lunch';
+
+  @override
+  String get iGroupMembersLabel => 'Group Members';
+
+  @override
+  String get iGroupMembersHint => 'e.g. @alice, @bob, @calista';
+
+  @override
   String get btnAddBill => 'Add Bill';
 
   @override
@@ -158,4 +170,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get logout => 'Logout';
+
+  @override
+  String get groupTooltip => 'Why create a group?';
+
+  @override
+  String get groupTooltipDesc =>
+      'Easily split bills with your friends, no need to re-add them each time.';
+
+  @override
+  String get searching => 'Searching...';
 }

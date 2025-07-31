@@ -244,6 +244,30 @@ abstract class AppLocalizations {
   /// **'Add Group'**
   String get btnAddGroup;
 
+  /// No description provided for @iGroupNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Group Name'**
+  String get iGroupNameLabel;
+
+  /// No description provided for @iGroupNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Weekend Trip, Office Lunch'**
+  String get iGroupNameHint;
+
+  /// No description provided for @iGroupMembersLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Group Members'**
+  String get iGroupMembersLabel;
+
+  /// No description provided for @iGroupMembersHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. @alice, @bob, @calista'**
+  String get iGroupMembersHint;
+
   /// No description provided for @btnAddBill.
   ///
   /// In en, this message translates to:
@@ -387,6 +411,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Logout'**
   String get logout;
+
+  /// No description provided for @groupTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Why create a group?'**
+  String get groupTooltip;
+
+  /// No description provided for @groupTooltipDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Easily split bills with your friends, no need to re-add them each time.'**
+  String get groupTooltipDesc;
+
+  /// No description provided for @searching.
+  ///
+  /// In en, this message translates to:
+  /// **'Searching...'**
+  String get searching;
 }
 
 class _AppLocalizationsDelegate

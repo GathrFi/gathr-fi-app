@@ -33,6 +33,10 @@
   "btnSend": "Send",
   "btnReceive": "Receive",
   "btnAddGroup": "Add Group",
+  "iGroupNameLabel": "Group Name",
+  "iGroupNameHint": "e.g. Weekend Trip, Office Lunch",
+  "iGroupMembersLabel": "Group Members",
+  "iGroupMembersHint": "e.g. @alice, @bob, @calista",
   "btnAddBill": "Add Bill",
   "apyYieldPercentage": "5% APY",
   "onlyUSDCAllowed": "Only send USDC to this address.",
@@ -56,5 +60,10 @@
   "colorSchemeLight": "Light",
   "colorSchemeDark": "Dark",
   "usdSymbol": "$",
-  "logout": "Logout"
+  "logout": "Logout",
+  "@_TOOLTIP": {},
+  "groupTooltip": "Why create a group?",
+  "groupTooltipDesc": "Easily split bills with your friends, no need to re-add them each time.",
+  "@_MISC": {},
+  "searching": "Searching..."
 }
