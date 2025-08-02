@@ -190,41 +190,11 @@ abstract class AppLocalizations {
   /// **'Your Wallet Balance'**
   String get yourWalletBalance;
 
-  /// No description provided for @btnWithdraw.
+  /// No description provided for @apyYieldPercentage.
   ///
   /// In en, this message translates to:
-  /// **'Withdraw'**
-  String get btnWithdraw;
-
-  /// No description provided for @btnDeposit.
-  ///
-  /// In en, this message translates to:
-  /// **'Deposit'**
-  String get btnDeposit;
-
-  /// No description provided for @iDepositLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Amount to Deposit'**
-  String get iDepositLabel;
-
-  /// No description provided for @iWithdrawLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Amount to Withdraw'**
-  String get iWithdrawLabel;
-
-  /// No description provided for @iAmountHint.
-  ///
-  /// In en, this message translates to:
-  /// **'0.00'**
-  String get iAmountHint;
-
-  /// No description provided for @iAmountExceedError.
-  ///
-  /// In en, this message translates to:
-  /// **'Amount exceeds your available balance.'**
-  String get iAmountExceedError;
+  /// **'5% APY'**
+  String get apyYieldPercentage;
 
   /// No description provided for @btnSend.
   ///
@@ -238,47 +208,41 @@ abstract class AppLocalizations {
   /// **'Receive'**
   String get btnReceive;
 
-  /// No description provided for @btnAddGroup.
+  /// No description provided for @iSendLabel.
   ///
   /// In en, this message translates to:
-  /// **'Add Group'**
-  String get btnAddGroup;
+  /// **'Amount to Send'**
+  String get iSendLabel;
 
-  /// No description provided for @iGroupNameLabel.
+  /// No description provided for @iAmountHint.
   ///
   /// In en, this message translates to:
-  /// **'Group Name'**
-  String get iGroupNameLabel;
+  /// **'0.00'**
+  String get iAmountHint;
 
-  /// No description provided for @iGroupNameHint.
+  /// No description provided for @iAmountExceedError.
   ///
   /// In en, this message translates to:
-  /// **'e.g. Weekend Trip, Office Lunch'**
-  String get iGroupNameHint;
+  /// **'Amount exceeds your available balance.'**
+  String get iAmountExceedError;
 
-  /// No description provided for @iGroupMembersLabel.
+  /// No description provided for @iRecipientLabel.
   ///
   /// In en, this message translates to:
-  /// **'Group Members'**
-  String get iGroupMembersLabel;
+  /// **'Recipient Address'**
+  String get iRecipientLabel;
 
-  /// No description provided for @iGroupMembersHint.
+  /// No description provided for @iRecipientHint.
   ///
   /// In en, this message translates to:
-  /// **'e.g. @alice, @bob, @calista'**
-  String get iGroupMembersHint;
+  /// **'0x1a2b...3c4d'**
+  String get iRecipientHint;
 
-  /// No description provided for @btnAddBill.
+  /// No description provided for @btnPaste.
   ///
   /// In en, this message translates to:
-  /// **'Add Bill'**
-  String get btnAddBill;
-
-  /// No description provided for @apyYieldPercentage.
-  ///
-  /// In en, this message translates to:
-  /// **'5% APY'**
-  String get apyYieldPercentage;
+  /// **'Paste'**
+  String get btnPaste;
 
   /// No description provided for @onlyUSDCAllowed.
   ///
@@ -304,6 +268,60 @@ abstract class AppLocalizations {
   /// **'Lisk Sepolia Testnet (ERC20)'**
   String get networkDefault;
 
+  /// No description provided for @btnAddGroup.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Group'**
+  String get btnAddGroup;
+
+  /// No description provided for @groupTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Why create a group?'**
+  String get groupTooltip;
+
+  /// No description provided for @groupTooltipDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Easily split bills with your friends, no need to re-add them each time.'**
+  String get groupTooltipDesc;
+
+  /// No description provided for @iGroupNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Group Name'**
+  String get iGroupNameLabel;
+
+  /// No description provided for @iGroupNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Weekend Trip, Office Lunch'**
+  String get iGroupNameHint;
+
+  /// No description provided for @iGroupMembersLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Group Members'**
+  String get iGroupMembersLabel;
+
+  /// No description provided for @iGroupMembersHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. @alice, @bob, @calista'**
+  String get iGroupMembersHint;
+
+  /// No description provided for @searching.
+  ///
+  /// In en, this message translates to:
+  /// **'Searching...'**
+  String get searching;
+
+  /// No description provided for @btnAddBill.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Bill'**
+  String get btnAddBill;
+
   /// No description provided for @myGroups.
   ///
   /// In en, this message translates to:
@@ -313,8 +331,20 @@ abstract class AppLocalizations {
   /// No description provided for @ongoingExpenses.
   ///
   /// In en, this message translates to:
-  /// **'Ongoing Expenses'**
+  /// **'Ongoing Bills'**
   String get ongoingExpenses;
+
+  /// No description provided for @iDescriptionLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get iDescriptionLabel;
+
+  /// No description provided for @iDescriptionHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Dinner at Sushi Bar'**
+  String get iDescriptionHint;
 
   /// No description provided for @history.
   ///
@@ -411,24 +441,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Logout'**
   String get logout;
-
-  /// No description provided for @groupTooltip.
-  ///
-  /// In en, this message translates to:
-  /// **'Why create a group?'**
-  String get groupTooltip;
-
-  /// No description provided for @groupTooltipDesc.
-  ///
-  /// In en, this message translates to:
-  /// **'Easily split bills with your friends, no need to re-add them each time.'**
-  String get groupTooltipDesc;
-
-  /// No description provided for @searching.
-  ///
-  /// In en, this message translates to:
-  /// **'Searching...'**
-  String get searching;
 }
 
 class _AppLocalizationsDelegate

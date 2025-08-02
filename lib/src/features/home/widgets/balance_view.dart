@@ -14,13 +14,11 @@ class BalanceView extends StatelessWidget {
     super.key,
     this.customLabel,
     required this.amount,
-    this.showAPYStats = true,
     this.showShortcuts = true,
   });
 
   final String? customLabel;
   final double? amount;
-  final bool showAPYStats;
   final bool showShortcuts;
 
   @override
@@ -61,60 +59,12 @@ class BalanceView extends StatelessWidget {
                           ),
                   ),
                 ),
-                Assets.images.imgBrandUsdcSvg.svg(width: context.spacingXlg),
+                Assets.images.imgBrandUsdcSvg.svg(
+                  width: context.spacingXlg,
+                  height: context.spacingXlg,
+                ),
               ],
             ),
-            if (showAPYStats)
-              Row(
-                spacing: context.spacingXs,
-                children: [
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: context.spacingSm,
-                      vertical: context.spacingXxs,
-                    ),
-                    decoration: BoxDecoration(
-                      color: switch (context.brightness) {
-                        Brightness.dark => Colors.grey.shade900,
-                        Brightness.light => Colors.grey.shade100,
-                      },
-                      borderRadius: (context.spacingMd * 2).borderRadius,
-                    ),
-                    child: Row(
-                      spacing: context.spacingXs,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Assets.images.imgBrandAave.svg(
-                          width: context.spacingXlg,
-                          colorFilter: switch (context.brightness) {
-                            Brightness.light => null,
-                            Brightness.dark => const ColorFilter.mode(
-                              ColorName.surface,
-                              BlendMode.srcIn,
-                            ),
-                          },
-                        ),
-                        Text(
-                          context.l10n.apyYieldPercentage,
-                          style: context.textTheme.bodyMedium?.copyWith(
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Text(
-                    '+${1256.80.toCurrency()}',
-                    style: context.textTheme.bodyLarge?.copyWith(
-                      color: switch (context.brightness) {
-                        Brightness.light => Colors.green.shade700,
-                        Brightness.dark => Colors.green,
-                      },
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ),
           ],
         ),
         if (showShortcuts)
@@ -123,26 +73,18 @@ class BalanceView extends StatelessWidget {
             children: [
               Flexible(
                 child: _ShortcutButton(
-                  onTap: () => context.pushRoute(const TrxWithdrawFundsRoute()),
+                  onTap: () => context.pushRoute(const TrxSendFundsRoute()),
                   icon: Assets.icons.icArrowSend,
-                  label: context.l10n.btnWithdraw,
+                  label: context.l10n.btnSend,
                   color: ColorName.orange,
                 ),
               ),
               Flexible(
                 child: _ShortcutButton(
-                  onTap: () => context.pushRoute(const TrxDepositFundsRoute()),
+                  onTap: () => context.pushRoute(const TrxReceiveFundsRoute()),
                   icon: Assets.icons.icArrowReceive,
-                  label: context.l10n.btnDeposit,
+                  label: context.l10n.btnReceive,
                   color: ColorName.blue,
-                ),
-              ),
-              Flexible(
-                child: _ShortcutButton(
-                  onTap: () => context.pushRoute(const GroupFormRoute()),
-                  icon: Assets.icons.icGroup,
-                  label: context.l10n.btnAddGroup,
-                  color: ColorName.secondary,
                 ),
               ),
               Flexible(
@@ -150,7 +92,7 @@ class BalanceView extends StatelessWidget {
                   onTap: () => context.pushRoute(const ExpensesFormRoute()),
                   icon: Assets.icons.icReceipt,
                   label: context.l10n.btnAddBill,
-                  color: ColorName.yellow,
+                  color: ColorName.secondary,
                 ),
               ),
             ],

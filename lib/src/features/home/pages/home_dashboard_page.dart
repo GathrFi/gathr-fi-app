@@ -9,7 +9,6 @@ import '../../../shared/extensions/ext_misc.dart';
 import '../../../shared/widgets/global_button.dart';
 import '../../../shared/widgets/global_scaffold.dart';
 import '../../../shared/widgets/global_title_view.dart';
-import '../../groups/widgets/group_list_view.dart';
 import '../../settings/managers/profile_bloc.dart';
 import '../../settings/widgets/profile_view.dart';
 import '../widgets/balance_view.dart';
@@ -26,8 +25,8 @@ class HomeDashboardPage extends StatelessWidget {
         children: [
           const Expanded(child: ProfileView()),
           GlobalCircleButton.outlined(
-            onTap: () {},
             child: Assets.icons.icNotification.icon(context),
+            onTap: () {},
           ),
         ],
       ),
@@ -38,22 +37,12 @@ class HomeDashboardPage extends StatelessWidget {
           children: [
             BlocBuilder<ProfileBloc, ProfileState>(
               builder: (context, state) {
-                final balance = state.whenOrNull(
-                  loaded: (profile) => profile.balance,
+                return BalanceView(
+                  amount: state.whenOrNull(
+                    loaded: (profile) => profile.balance,
+                  ),
                 );
-
-                return BalanceView(amount: balance);
               },
-            ),
-            Column(
-              spacing: context.spacingMd,
-              children: [
-                GlobalTitleView(
-                  title: context.l10n.myGroups,
-                  onSeeAllTap: () {},
-                ),
-                const GroupListView(),
-              ],
             ),
             Column(
               spacing: context.spacingMd,
@@ -62,7 +51,11 @@ class HomeDashboardPage extends StatelessWidget {
                   title: context.l10n.ongoingExpenses,
                   onSeeAllTap: () {},
                 ),
-                const Placeholder(color: ColorName.border, fallbackHeight: 200),
+                const Placeholder(
+                  color: ColorName.border,
+                  fallbackHeight: 200,
+                  strokeWidth: 1.0,
+                ),
               ],
             ),
           ],

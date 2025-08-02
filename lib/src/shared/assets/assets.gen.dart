@@ -20,14 +20,11 @@ class $AssetsAbisGen {
   /// File path: assets/abis/gathrfi-abi.json
   String get gathrfiAbi => 'assets/abis/gathrfi-abi.json';
 
-  /// File path: assets/abis/mock-aave-abi.json
-  String get mockAaveAbi => 'assets/abis/mock-aave-abi.json';
-
   /// File path: assets/abis/mock-usdc-abi.json
   String get mockUsdcAbi => 'assets/abis/mock-usdc-abi.json';
 
   /// List of all assets
-  List<String> get values => [gathrfiAbi, mockAaveAbi, mockUsdcAbi];
+  List<String> get values => [gathrfiAbi, mockUsdcAbi];
 }
 
 class $AssetsIconsGen {

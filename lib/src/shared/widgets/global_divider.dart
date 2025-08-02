@@ -14,8 +14,8 @@ class GlobalDivider extends StatelessWidget {
       indent: context.spacingXxs,
       endIndent: context.spacingXxs,
       color: switch (context.brightness) {
-        Brightness.dark => ColorName.borderDark,
         Brightness.light => ColorName.border,
+        Brightness.dark => ColorName.borderDark,
       },
     );
   }

@@ -60,22 +60,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get yourWalletBalance => 'Your Wallet Balance';
 
   @override
-  String get btnWithdraw => 'Withdraw';
-
-  @override
-  String get btnDeposit => 'Deposit';
-
-  @override
-  String get iDepositLabel => 'Amount to Deposit';
-
-  @override
-  String get iWithdrawLabel => 'Amount to Withdraw';
-
-  @override
-  String get iAmountHint => '0.00';
-
-  @override
-  String get iAmountExceedError => 'Amount exceeds your available balance.';
+  String get apyYieldPercentage => '5% APY';
 
   @override
   String get btnSend => 'Send';
@@ -84,25 +69,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get btnReceive => 'Receive';
 
   @override
-  String get btnAddGroup => 'Add Group';
+  String get iSendLabel => 'Amount to Send';
 
   @override
-  String get iGroupNameLabel => 'Group Name';
+  String get iAmountHint => '0.00';
 
   @override
-  String get iGroupNameHint => 'e.g. Weekend Trip, Office Lunch';
+  String get iAmountExceedError => 'Amount exceeds your available balance.';
 
   @override
-  String get iGroupMembersLabel => 'Group Members';
+  String get iRecipientLabel => 'Recipient Address';
 
   @override
-  String get iGroupMembersHint => 'e.g. @alice, @bob, @calista';
+  String get iRecipientHint => '0x1a2b...3c4d';
 
   @override
-  String get btnAddBill => 'Add Bill';
-
-  @override
-  String get apyYieldPercentage => '5% APY';
+  String get btnPaste => 'Paste';
 
   @override
   String get onlyUSDCAllowed => 'Only send USDC to this address.';
@@ -117,10 +99,44 @@ class AppLocalizationsEn extends AppLocalizations {
   String get networkDefault => 'Lisk Sepolia Testnet (ERC20)';
 
   @override
+  String get btnAddGroup => 'Add Group';
+
+  @override
+  String get groupTooltip => 'Why create a group?';
+
+  @override
+  String get groupTooltipDesc =>
+      'Easily split bills with your friends, no need to re-add them each time.';
+
+  @override
+  String get iGroupNameLabel => 'Group Name';
+
+  @override
+  String get iGroupNameHint => 'e.g. Weekend Trip, Office Lunch';
+
+  @override
+  String get iGroupMembersLabel => 'Group Members';
+
+  @override
+  String get iGroupMembersHint => 'e.g. @alice, @bob, @calista';
+
+  @override
+  String get searching => 'Searching...';
+
+  @override
+  String get btnAddBill => 'Add Bill';
+
+  @override
   String get myGroups => 'My Groups';
 
   @override
-  String get ongoingExpenses => 'Ongoing Expenses';
+  String get ongoingExpenses => 'Ongoing Bills';
+
+  @override
+  String get iDescriptionLabel => 'Description';
+
+  @override
+  String get iDescriptionHint => 'e.g. Dinner at Sushi Bar';
 
   @override
   String get history => 'History';
@@ -170,14 +186,4 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get logout => 'Logout';
-
-  @override
-  String get groupTooltip => 'Why create a group?';
-
-  @override
-  String get groupTooltipDesc =>
-      'Easily split bills with your friends, no need to re-add them each time.';
-
-  @override
-  String get searching => 'Searching...';
 }

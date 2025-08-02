@@ -20,11 +20,9 @@ class Web3Service {
   }
 
   static EthereumAddress get mockUsdcAddress =>
-      EthereumAddress.fromHex('0x946cE267a0F6045C994Fa6401aD2F5b8B2A51097');
-  static EthereumAddress get mockAaveAddress =>
-      EthereumAddress.fromHex('0xfA1c92F494A701F7eA99fb3a6Fd10B198dA75bFD');
+      EthereumAddress.fromHex('0xa3634254AEB3f2fC8e623B6b2fe45053482407De');
   static EthereumAddress get gathrfiAddress =>
-      EthereumAddress.fromHex('0x37c5cC6807f554Ad17F7b70e1bBF80905A8C9afE');
+      EthereumAddress.fromHex('0x2b116a94B287aFdc1F8B95e6fcEb734bC6b99C99');
 
   static Future<DeployedContract> get mockUsdcContract async {
     final abiJson = await rootBundle.loadString(Assets.abis.mockUsdcAbi);
@@ -32,15 +30,6 @@ class Web3Service {
     return DeployedContract(
       ContractAbi.fromJson(abiJson, 'MockUSDC'),
       mockUsdcAddress,
-    );
-  }
-
-  static Future<DeployedContract> get mockAaveContract async {
-    final abiJson = await rootBundle.loadString(Assets.abis.mockAaveAbi);
-
-    return DeployedContract(
-      ContractAbi.fromJson(abiJson, 'MockAavePool'),
-      mockAaveAddress,
     );
   }
 

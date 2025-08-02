@@ -10,10 +10,7 @@ abstract class UserProfile with _$UserProfile {
     String? email,
     String? username,
     String? address,
-    double? walletBalance,
     double? balance,
-    double? yieldPercentage,
-    double? yieldAmount,
     String? image,
   }) = _UserProfile;
 
